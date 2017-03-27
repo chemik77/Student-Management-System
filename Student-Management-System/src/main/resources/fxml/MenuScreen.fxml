@@ -6,19 +6,18 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.GridPane?>
 
-
-<GridPane alignment="CENTER" hgap="5.0" prefHeight="200.0" prefWidth="300.0" vgap="5.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<GridPane alignment="CENTER" hgap="5.0" prefHeight="200.0" prefWidth="500.0" vgap="5.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.chemik77.controllers.MenuController">
    <columnConstraints>
-      <ColumnConstraints halignment="CENTER" minWidth="10.0" prefWidth="100.0" />
-      <ColumnConstraints halignment="CENTER" minWidth="10.0" prefWidth="100.0" />
-      <ColumnConstraints halignment="CENTER" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints halignment="CENTER" minWidth="10.0" prefWidth="166.0" />
+      <ColumnConstraints halignment="CENTER" minWidth="10.0" prefWidth="167.0" />
+      <ColumnConstraints halignment="CENTER" minWidth="10.0" prefWidth="167.0" />
    </columnConstraints>
    <rowConstraints>
       <RowConstraints prefHeight="200.0" />
    </rowConstraints>
    <children>
-      <Button alignment="CENTER" mnemonicParsing="false" prefHeight="80.0" prefWidth="80.0" text="Kandydat" GridPane.halignment="RIGHT" />
-      <Button alignment="CENTER" mnemonicParsing="false" prefHeight="80.0" prefWidth="80.0" text="Student" GridPane.columnIndex="1" />
-      <Button alignment="CENTER" mnemonicParsing="false" prefHeight="80.0" prefWidth="80.0" text="Pracownik" GridPane.columnIndex="2" GridPane.halignment="LEFT" />
+      <Button fx:id="btnCandidate" alignment="CENTER" mnemonicParsing="false" onAction="#openCandidate" prefHeight="80.0" prefWidth="80.0" text="Kandydat" GridPane.halignment="RIGHT" />
+      <Button fx:id="btnStudent" alignment="CENTER" mnemonicParsing="false" onAction="#openStudent" prefHeight="80.0" prefWidth="80.0" text="Student" GridPane.columnIndex="1" />
+      <Button fx:id="btnEmployee" alignment="CENTER" mnemonicParsing="false" onAction="#openEmployee" prefHeight="80.0" prefWidth="80.0" text="Pracownik" GridPane.columnIndex="2" GridPane.halignment="LEFT" />
    </children>
 </GridPane>

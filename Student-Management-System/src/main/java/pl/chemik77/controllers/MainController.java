@@ -26,8 +26,16 @@ public class MainController {
 			e.printStackTrace();
 		}
 		
-		mainStackPane.getChildren().add(gridPane);
+		MenuController menuController = loader.getController();
+		menuController.setMainController(this);
+		setScreen(gridPane);
 		
+	}
+
+	public void setScreen(GridPane gridPane) {
+		
+		mainStackPane.getChildren().clear();
+		mainStackPane.getChildren().add(gridPane);
 	}
 	
 }
