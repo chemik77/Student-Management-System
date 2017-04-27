@@ -4,4 +4,33 @@
   <artifactId>Student-Management-System</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>Student-Management-System</name>
+  
+  
+  <dependencies>
+  
+	  		<!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
+	<dependency>
+	    <groupId>com.h2database</groupId>
+	    <artifactId>h2</artifactId>
+	    <version>1.4.195</version>
+	</dependency>
+	  	
+		  	<!-- https://mvnrepository.com/artifact/com.j256.ormlite/ormlite-jdbc -->
+	<dependency>
+	    <groupId>com.j256.ormlite</groupId>
+	    <artifactId>ormlite-jdbc</artifactId>
+	    <version>5.0</version>
+	</dependency>
+		  	
+		  	<!-- https://mvnrepository.com/artifact/com.j256.ormlite/ormlite-core -->
+	<dependency>
+	    <groupId>com.j256.ormlite</groupId>
+	    <artifactId>ormlite-core</artifactId>
+	    <version>5.0</version>
+	</dependency>
+			  	
+		  	
+  
+  </dependencies>
+  
 </project>
