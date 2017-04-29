@@ -1,6 +1,5 @@
 package pl.chemik77.database.models;
 
-import java.time.LocalDate;
 import java.util.Date;
 
 import com.j256.ormlite.field.DatabaseField;

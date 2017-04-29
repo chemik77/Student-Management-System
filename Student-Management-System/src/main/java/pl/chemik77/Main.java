@@ -1,17 +1,15 @@
 package pl.chemik77;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import pl.chemik77.database.dbUtils.DbManager;
 import pl.chemik77.utils.FillDatabase;
+import pl.chemik77.utils.FxmlUtils;
 
 public class Main extends Application {
-
+	
 	public static void main(String[] args) {
 		
 		launch(args);
@@ -21,12 +19,10 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		
-		FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/StudentInformation.fxml"));
-		
-		BorderPane root = loader.load();
-		Scene scene = new Scene(root, 900, 600);
+		Pane root = (Pane) FxmlUtils.getPane("/fxml/Login.fxml");
+		Scene scene = new Scene(root);
 		primaryStage.setScene(scene);
-		primaryStage.setTitle("Student Information System");
+		primaryStage.setTitle(FxmlUtils.getBundles("main.title"));
 		primaryStage.show();
 		
 		DbManager.initDatabase();
