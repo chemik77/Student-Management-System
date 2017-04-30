@@ -2,7 +2,9 @@ package pl.chemik77.database.models;
 
 import java.util.Date;
 
+import com.j256.ormlite.dao.ForeignCollection;
 import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.field.ForeignCollectionField;
 import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable(tableName = "students")
@@ -11,7 +13,7 @@ public class Student implements BaseModel{
 	@DatabaseField(generatedId = true)
 	private int id;
 	
-	@DatabaseField(columnName = "document_id", unique = true)
+	@DatabaseField(columnName = "document", unique = true)
 	private String document;
 	
 	@DatabaseField(columnName = "first_name")
@@ -49,6 +51,18 @@ public class Student implements BaseModel{
 	
 	@DatabaseField(columnName = "photo_url")
 	private String photo;
+	
+	@DatabaseField(columnName = "division_id", foreign = true)
+	private Division division;
+	
+	@DatabaseField(columnName = "faculty_id", foreign = true)
+	private Faculty faculty;
+	
+	@DatabaseField(columnName = "group_id", foreign = true)
+	private Group group;
+	
+	@ForeignCollectionField
+	ForeignCollection<Subject> subjects;
 	
 	public Student(){}
 
@@ -167,6 +181,38 @@ public class Student implements BaseModel{
 	@Override
 	public String toString() {
 		return this.firstName + " " + this.lastName;
+	}
+
+	public ForeignCollection<Subject> getSubjects() {
+		return subjects;
+	}
+
+	public Group getGroup() {
+		return group;
+	}
+
+	public void setGroup(Group group) {
+		this.group = group;
+	}
+
+	public Division getDivision() {
+		return division;
+	}
+
+	public void setDivision(Division division) {
+		this.division = division;
+	}
+
+	public Faculty getFaculty() {
+		return faculty;
+	}
+
+	public void setFaculty(Faculty faculty) {
+		this.faculty = faculty;
+	}
+
+	public void setSubjects(ForeignCollection<Subject> subjects) {
+		this.subjects = subjects;
 	}
 	
 }

@@ -25,10 +25,10 @@
         </rowConstraints>
          <children>
             <Button fx:id="addStudentButton" onAction="#addStudentButtonOnAction" mnemonicParsing="false" text="%menu.addStudent" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Button fx:id="listOfStudentsButton" onAction="#listOfStudentsButtonOnAction" mnemonicParsing="false" text="%menu.display" GridPane.columnIndex="2" GridPane.rowIndex="2" />
             <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="3" />
             <Label text="%menu.studentInformation" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="%menu.listOfStudents" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
          </children>
       </GridPane>
