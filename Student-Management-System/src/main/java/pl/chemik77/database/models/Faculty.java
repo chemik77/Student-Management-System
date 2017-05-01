@@ -7,7 +7,7 @@ import com.j256.ormlite.field.ForeignCollectionField;
 public class Faculty implements BaseModel {
 
 	@DatabaseField(generatedId = true)
-	private int id;
+	private int facultyID;
 	
 	@DatabaseField(columnName = "faculty_name", unique = true)
 	private String nameFaculty;
@@ -17,13 +17,16 @@ public class Faculty implements BaseModel {
 	
 	@ForeignCollectionField
 	ForeignCollection<Subject> subjects;
+	
+	@ForeignCollectionField
+	ForeignCollection<Student> students;
 
 	public int getId() {
-		return id;
+		return facultyID;
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		this.facultyID = id;
 	}
 
 	public String getNameFaculty() {
@@ -48,6 +51,14 @@ public class Faculty implements BaseModel {
 
 	public void setSubjects(ForeignCollection<Subject> subjects) {
 		this.subjects = subjects;
+	}
+
+	public ForeignCollection<Student> getStudents() {
+		return students;
+	}
+
+	public void setStudents(ForeignCollection<Student> students) {
+		this.students = students;
 	}
 	
 }

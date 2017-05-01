@@ -9,7 +9,13 @@ import com.j256.ormlite.logger.LoggerFactory;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
+import pl.chemik77.database.models.Division;
+import pl.chemik77.database.models.Faculty;
+import pl.chemik77.database.models.PersonalInfo;
 import pl.chemik77.database.models.Student;
+import pl.chemik77.database.models.StudentSubject;
+import pl.chemik77.database.models.Subject;
+import pl.chemik77.database.models.Teacher;
 
 public class DbManager {
 	
@@ -40,17 +46,29 @@ public class DbManager {
 			}
 	}
 	
-	private static void createTable() {
+	private static void createTables() {
 		try {
 			TableUtils.createTableIfNotExists(connectionSource, Student.class);
+			TableUtils.createTableIfNotExists(connectionSource, Division.class);
+			TableUtils.createTableIfNotExists(connectionSource, Faculty.class);
+			TableUtils.createTableIfNotExists(connectionSource, Subject.class);
+			TableUtils.createTableIfNotExists(connectionSource, Teacher.class);
+			TableUtils.createTableIfNotExists(connectionSource, StudentSubject.class);
+			TableUtils.createTableIfNotExists(connectionSource, PersonalInfo.class);
 		} catch (SQLException e) {
 			LOGGER.warn(e.getMessage());
 		}
 	}
 	
-	private static void dropTable() {
+	private static void dropTables() {
 		try {
 			TableUtils.dropTable(connectionSource, Student.class, true);
+			TableUtils.dropTable(connectionSource, Division.class, true);
+			TableUtils.dropTable(connectionSource, Faculty.class, true);
+			TableUtils.dropTable(connectionSource, Subject.class, true);
+			TableUtils.dropTable(connectionSource, Teacher.class, true);
+			TableUtils.dropTable(connectionSource, StudentSubject.class, true);
+			TableUtils.dropTable(connectionSource, PersonalInfo.class, true);
 		} catch (SQLException e) {
 			LOGGER.warn(e.getMessage());
 		}
@@ -58,8 +76,8 @@ public class DbManager {
 	
 	public static void initDatabase() {
 		createConnectionSource();
-		dropTable();
-		createTable();
+		dropTables();
+		createTables();
 		closeConnectionSource();
 	}
 }

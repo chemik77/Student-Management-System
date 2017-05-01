@@ -3,7 +3,9 @@ package pl.chemik77.utils;
 import java.io.IOException;
 import java.util.ResourceBundle;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -29,13 +31,18 @@ public class FxmlUtils {
 		
 	}
 	
-	public static void loadView(Pane root, String fxmlPath) {
+	public static Stage loadStage(Pane root, String fxmlPath, String key) {
 		
 		root = (Pane) FxmlUtils.getPane(fxmlPath);
 		Stage stage = new Stage();
 		stage.setScene(new Scene(root));
+		stage.setTitle(FxmlUtils.getBundles(key));
 		stage.show();
-		
+		return stage;
+	}
+	
+	public static void hidePreviousWindow(ActionEvent event) {
+		((Node) event.getSource()).getScene().getWindow().hide();
 	}
 	
 }

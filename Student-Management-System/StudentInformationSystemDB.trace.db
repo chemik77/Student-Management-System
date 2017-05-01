@@ -2,3 +2,351 @@
 org.h2.jdbc.JdbcSQLException: Tabela "STUDENTS" nie istnieje
 Table "STUDENTS" not found; SQL statement:
 DROP TABLE `students`  [42102-195]
+2017-04-30 19:29:08 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Kolumna "DOCUMENT" nie istnieje
+Column "DOCUMENT" not found; SQL statement:
+INSERT INTO `students` (`document` ,`first_name` ,`last_name` ,`pesel` ,`sex` ,`date_birth` ,`phone_number` ,`email` ,`street` ,`house_number` ,`zip_code` ,`city` ,`photo_url` ,`division_id` ,`faculty_id` ,`group_id` ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) [42122-195]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.table.Table.getColumn(Table.java:676)
+	at org.h2.command.Parser.parseColumn(Parser.java:881)
+	at org.h2.command.Parser.parseColumnList(Parser.java:865)
+	at org.h2.command.Parser.parseInsert(Parser.java:1065)
+	at org.h2.command.Parser.parsePrepared(Parser.java:416)
+	at org.h2.command.Parser.parse(Parser.java:320)
+	at org.h2.command.Parser.parse(Parser.java:292)
+	at org.h2.command.Parser.prepareCommand(Parser.java:257)
+	at org.h2.engine.Session.prepareLocal(Session.java:573)
+	at org.h2.engine.Session.prepareCommand(Session.java:514)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1204)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:73)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:288)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:1138)
+	at com.j256.ormlite.jdbc.JdbcDatabaseConnection.insert(JdbcDatabaseConnection.java:179)
+	at com.j256.ormlite.stmt.mapped.MappedCreate.insert(MappedCreate.java:91)
+	at com.j256.ormlite.stmt.StatementExecutor.create(StatementExecutor.java:458)
+	at com.j256.ormlite.dao.BaseDaoImpl.create(BaseDaoImpl.java:328)
+	at com.j256.ormlite.dao.BaseDaoImpl.createOrUpdate(BaseDaoImpl.java:387)
+	at pl.chemik77.database.dao.CommonDao.createOrUpdate(CommonDao.java:37)
+	at pl.chemik77.utils.FillDatabase.fillDatabase(FillDatabase.java:27)
+	at pl.chemik77.Main.start(Main.java:29)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$162(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$175(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$173(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$174(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$148(WinApplication.java:191)
+	at java.lang.Thread.run(Thread.java:745)
+2017-04-30 19:29:08 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Kolumna "DOCUMENT" nie istnieje
+Column "DOCUMENT" not found; SQL statement:
+INSERT INTO `students` (`document` ,`first_name` ,`last_name` ,`pesel` ,`sex` ,`date_birth` ,`phone_number` ,`email` ,`street` ,`house_number` ,`zip_code` ,`city` ,`photo_url` ,`division_id` ,`faculty_id` ,`group_id` ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) [42122-195]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.table.Table.getColumn(Table.java:676)
+	at org.h2.command.Parser.parseColumn(Parser.java:881)
+	at org.h2.command.Parser.parseColumnList(Parser.java:865)
+	at org.h2.command.Parser.parseInsert(Parser.java:1065)
+	at org.h2.command.Parser.parsePrepared(Parser.java:416)
+	at org.h2.command.Parser.parse(Parser.java:320)
+	at org.h2.command.Parser.parse(Parser.java:292)
+	at org.h2.command.Parser.prepareCommand(Parser.java:257)
+	at org.h2.engine.Session.prepareLocal(Session.java:573)
+	at org.h2.engine.Session.prepareCommand(Session.java:514)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1204)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:73)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:288)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:1138)
+	at com.j256.ormlite.jdbc.JdbcDatabaseConnection.insert(JdbcDatabaseConnection.java:179)
+	at com.j256.ormlite.stmt.mapped.MappedCreate.insert(MappedCreate.java:91)
+	at com.j256.ormlite.stmt.StatementExecutor.create(StatementExecutor.java:458)
+	at com.j256.ormlite.dao.BaseDaoImpl.create(BaseDaoImpl.java:328)
+	at com.j256.ormlite.dao.BaseDaoImpl.createOrUpdate(BaseDaoImpl.java:387)
+	at pl.chemik77.database.dao.CommonDao.createOrUpdate(CommonDao.java:37)
+	at pl.chemik77.utils.FillDatabase.fillDatabase(FillDatabase.java:27)
+	at pl.chemik77.Main.start(Main.java:29)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$162(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$175(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$173(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$174(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$148(WinApplication.java:191)
+	at java.lang.Thread.run(Thread.java:745)
+2017-04-30 19:29:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Kolumna "DOCUMENT" nie istnieje
+Column "DOCUMENT" not found; SQL statement:
+INSERT INTO `students` (`document` ,`first_name` ,`last_name` ,`pesel` ,`sex` ,`date_birth` ,`phone_number` ,`email` ,`street` ,`house_number` ,`zip_code` ,`city` ,`photo_url` ,`division_id` ,`faculty_id` ,`group_id` ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) [42122-195]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.table.Table.getColumn(Table.java:676)
+	at org.h2.command.Parser.parseColumn(Parser.java:881)
+	at org.h2.command.Parser.parseColumnList(Parser.java:865)
+	at org.h2.command.Parser.parseInsert(Parser.java:1065)
+	at org.h2.command.Parser.parsePrepared(Parser.java:416)
+	at org.h2.command.Parser.parse(Parser.java:320)
+	at org.h2.command.Parser.parse(Parser.java:292)
+	at org.h2.command.Parser.prepareCommand(Parser.java:257)
+	at org.h2.engine.Session.prepareLocal(Session.java:573)
+	at org.h2.engine.Session.prepareCommand(Session.java:514)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1204)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:73)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:288)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:1138)
+	at com.j256.ormlite.jdbc.JdbcDatabaseConnection.insert(JdbcDatabaseConnection.java:179)
+	at com.j256.ormlite.stmt.mapped.MappedCreate.insert(MappedCreate.java:91)
+	at com.j256.ormlite.stmt.StatementExecutor.create(StatementExecutor.java:458)
+	at com.j256.ormlite.dao.BaseDaoImpl.create(BaseDaoImpl.java:328)
+	at com.j256.ormlite.dao.BaseDaoImpl.createOrUpdate(BaseDaoImpl.java:387)
+	at pl.chemik77.database.dao.CommonDao.createOrUpdate(CommonDao.java:37)
+	at pl.chemik77.utils.FillDatabase.fillDatabase(FillDatabase.java:43)
+	at pl.chemik77.Main.start(Main.java:29)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$162(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$175(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$173(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$174(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$148(WinApplication.java:191)
+	at java.lang.Thread.run(Thread.java:745)
+2017-04-30 19:29:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Kolumna "DOCUMENT" nie istnieje
+Column "DOCUMENT" not found; SQL statement:
+INSERT INTO `students` (`document` ,`first_name` ,`last_name` ,`pesel` ,`sex` ,`date_birth` ,`phone_number` ,`email` ,`street` ,`house_number` ,`zip_code` ,`city` ,`photo_url` ,`division_id` ,`faculty_id` ,`group_id` ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) [42122-195]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.table.Table.getColumn(Table.java:676)
+	at org.h2.command.Parser.parseColumn(Parser.java:881)
+	at org.h2.command.Parser.parseColumnList(Parser.java:865)
+	at org.h2.command.Parser.parseInsert(Parser.java:1065)
+	at org.h2.command.Parser.parsePrepared(Parser.java:416)
+	at org.h2.command.Parser.parse(Parser.java:320)
+	at org.h2.command.Parser.parse(Parser.java:292)
+	at org.h2.command.Parser.prepareCommand(Parser.java:257)
+	at org.h2.engine.Session.prepareLocal(Session.java:573)
+	at org.h2.engine.Session.prepareCommand(Session.java:514)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1204)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:73)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:288)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:1138)
+	at com.j256.ormlite.jdbc.JdbcDatabaseConnection.insert(JdbcDatabaseConnection.java:179)
+	at com.j256.ormlite.stmt.mapped.MappedCreate.insert(MappedCreate.java:91)
+	at com.j256.ormlite.stmt.StatementExecutor.create(StatementExecutor.java:458)
+	at com.j256.ormlite.dao.BaseDaoImpl.create(BaseDaoImpl.java:328)
+	at com.j256.ormlite.dao.BaseDaoImpl.createOrUpdate(BaseDaoImpl.java:387)
+	at pl.chemik77.database.dao.CommonDao.createOrUpdate(CommonDao.java:37)
+	at pl.chemik77.utils.FillDatabase.fillDatabase(FillDatabase.java:43)
+	at pl.chemik77.Main.start(Main.java:29)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$162(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$175(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$173(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$174(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$148(WinApplication.java:191)
+	at java.lang.Thread.run(Thread.java:745)
+2017-04-30 19:29:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Kolumna "DOCUMENT" nie istnieje
+Column "DOCUMENT" not found; SQL statement:
+INSERT INTO `students` (`document` ,`first_name` ,`last_name` ,`pesel` ,`sex` ,`date_birth` ,`phone_number` ,`email` ,`street` ,`house_number` ,`zip_code` ,`city` ,`photo_url` ,`division_id` ,`faculty_id` ,`group_id` ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) [42122-195]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.table.Table.getColumn(Table.java:676)
+	at org.h2.command.Parser.parseColumn(Parser.java:881)
+	at org.h2.command.Parser.parseColumnList(Parser.java:865)
+	at org.h2.command.Parser.parseInsert(Parser.java:1065)
+	at org.h2.command.Parser.parsePrepared(Parser.java:416)
+	at org.h2.command.Parser.parse(Parser.java:320)
+	at org.h2.command.Parser.parse(Parser.java:292)
+	at org.h2.command.Parser.prepareCommand(Parser.java:257)
+	at org.h2.engine.Session.prepareLocal(Session.java:573)
+	at org.h2.engine.Session.prepareCommand(Session.java:514)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1204)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:73)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:288)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:1138)
+	at com.j256.ormlite.jdbc.JdbcDatabaseConnection.insert(JdbcDatabaseConnection.java:179)
+	at com.j256.ormlite.stmt.mapped.MappedCreate.insert(MappedCreate.java:91)
+	at com.j256.ormlite.stmt.StatementExecutor.create(StatementExecutor.java:458)
+	at com.j256.ormlite.dao.BaseDaoImpl.create(BaseDaoImpl.java:328)
+	at com.j256.ormlite.dao.BaseDaoImpl.createOrUpdate(BaseDaoImpl.java:387)
+	at pl.chemik77.database.dao.CommonDao.createOrUpdate(CommonDao.java:37)
+	at pl.chemik77.utils.FillDatabase.fillDatabase(FillDatabase.java:59)
+	at pl.chemik77.Main.start(Main.java:29)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$162(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$175(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$173(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$174(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$148(WinApplication.java:191)
+	at java.lang.Thread.run(Thread.java:745)
+2017-04-30 19:29:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Kolumna "DOCUMENT" nie istnieje
+Column "DOCUMENT" not found; SQL statement:
+INSERT INTO `students` (`document` ,`first_name` ,`last_name` ,`pesel` ,`sex` ,`date_birth` ,`phone_number` ,`email` ,`street` ,`house_number` ,`zip_code` ,`city` ,`photo_url` ,`division_id` ,`faculty_id` ,`group_id` ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) [42122-195]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.table.Table.getColumn(Table.java:676)
+	at org.h2.command.Parser.parseColumn(Parser.java:881)
+	at org.h2.command.Parser.parseColumnList(Parser.java:865)
+	at org.h2.command.Parser.parseInsert(Parser.java:1065)
+	at org.h2.command.Parser.parsePrepared(Parser.java:416)
+	at org.h2.command.Parser.parse(Parser.java:320)
+	at org.h2.command.Parser.parse(Parser.java:292)
+	at org.h2.command.Parser.prepareCommand(Parser.java:257)
+	at org.h2.engine.Session.prepareLocal(Session.java:573)
+	at org.h2.engine.Session.prepareCommand(Session.java:514)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1204)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:73)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:288)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:1138)
+	at com.j256.ormlite.jdbc.JdbcDatabaseConnection.insert(JdbcDatabaseConnection.java:179)
+	at com.j256.ormlite.stmt.mapped.MappedCreate.insert(MappedCreate.java:91)
+	at com.j256.ormlite.stmt.StatementExecutor.create(StatementExecutor.java:458)
+	at com.j256.ormlite.dao.BaseDaoImpl.create(BaseDaoImpl.java:328)
+	at com.j256.ormlite.dao.BaseDaoImpl.createOrUpdate(BaseDaoImpl.java:387)
+	at pl.chemik77.database.dao.CommonDao.createOrUpdate(CommonDao.java:37)
+	at pl.chemik77.utils.FillDatabase.fillDatabase(FillDatabase.java:59)
+	at pl.chemik77.Main.start(Main.java:29)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$162(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$175(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$173(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$174(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$148(WinApplication.java:191)
+	at java.lang.Thread.run(Thread.java:745)
+2017-04-30 19:29:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Kolumna "DOCUMENT" nie istnieje
+Column "DOCUMENT" not found; SQL statement:
+INSERT INTO `students` (`document` ,`first_name` ,`last_name` ,`pesel` ,`sex` ,`date_birth` ,`phone_number` ,`email` ,`street` ,`house_number` ,`zip_code` ,`city` ,`photo_url` ,`division_id` ,`faculty_id` ,`group_id` ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) [42122-195]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.table.Table.getColumn(Table.java:676)
+	at org.h2.command.Parser.parseColumn(Parser.java:881)
+	at org.h2.command.Parser.parseColumnList(Parser.java:865)
+	at org.h2.command.Parser.parseInsert(Parser.java:1065)
+	at org.h2.command.Parser.parsePrepared(Parser.java:416)
+	at org.h2.command.Parser.parse(Parser.java:320)
+	at org.h2.command.Parser.parse(Parser.java:292)
+	at org.h2.command.Parser.prepareCommand(Parser.java:257)
+	at org.h2.engine.Session.prepareLocal(Session.java:573)
+	at org.h2.engine.Session.prepareCommand(Session.java:514)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1204)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:73)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:288)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:1138)
+	at com.j256.ormlite.jdbc.JdbcDatabaseConnection.insert(JdbcDatabaseConnection.java:179)
+	at com.j256.ormlite.stmt.mapped.MappedCreate.insert(MappedCreate.java:91)
+	at com.j256.ormlite.stmt.StatementExecutor.create(StatementExecutor.java:458)
+	at com.j256.ormlite.dao.BaseDaoImpl.create(BaseDaoImpl.java:328)
+	at com.j256.ormlite.dao.BaseDaoImpl.createOrUpdate(BaseDaoImpl.java:387)
+	at pl.chemik77.database.dao.CommonDao.createOrUpdate(CommonDao.java:37)
+	at pl.chemik77.utils.FillDatabase.fillDatabase(FillDatabase.java:75)
+	at pl.chemik77.Main.start(Main.java:29)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$162(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$175(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$173(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$174(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$148(WinApplication.java:191)
+	at java.lang.Thread.run(Thread.java:745)
+2017-04-30 19:29:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Kolumna "DOCUMENT" nie istnieje
+Column "DOCUMENT" not found; SQL statement:
+INSERT INTO `students` (`document` ,`first_name` ,`last_name` ,`pesel` ,`sex` ,`date_birth` ,`phone_number` ,`email` ,`street` ,`house_number` ,`zip_code` ,`city` ,`photo_url` ,`division_id` ,`faculty_id` ,`group_id` ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) [42122-195]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.table.Table.getColumn(Table.java:676)
+	at org.h2.command.Parser.parseColumn(Parser.java:881)
+	at org.h2.command.Parser.parseColumnList(Parser.java:865)
+	at org.h2.command.Parser.parseInsert(Parser.java:1065)
+	at org.h2.command.Parser.parsePrepared(Parser.java:416)
+	at org.h2.command.Parser.parse(Parser.java:320)
+	at org.h2.command.Parser.parse(Parser.java:292)
+	at org.h2.command.Parser.prepareCommand(Parser.java:257)
+	at org.h2.engine.Session.prepareLocal(Session.java:573)
+	at org.h2.engine.Session.prepareCommand(Session.java:514)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1204)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:73)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:288)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:1138)
+	at com.j256.ormlite.jdbc.JdbcDatabaseConnection.insert(JdbcDatabaseConnection.java:179)
+	at com.j256.ormlite.stmt.mapped.MappedCreate.insert(MappedCreate.java:91)
+	at com.j256.ormlite.stmt.StatementExecutor.create(StatementExecutor.java:458)
+	at com.j256.ormlite.dao.BaseDaoImpl.create(BaseDaoImpl.java:328)
+	at com.j256.ormlite.dao.BaseDaoImpl.createOrUpdate(BaseDaoImpl.java:387)
+	at pl.chemik77.database.dao.CommonDao.createOrUpdate(CommonDao.java:37)
+	at pl.chemik77.utils.FillDatabase.fillDatabase(FillDatabase.java:75)
+	at pl.chemik77.Main.start(Main.java:29)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$162(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$175(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$173(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$174(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$148(WinApplication.java:191)
+	at java.lang.Thread.run(Thread.java:745)
+2017-04-30 19:29:56 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Tabela "SUBJECT" nie istnieje
+Table "SUBJECT" not found; SQL statement:
+DROP TABLE `subject`  [42102-195]
+2017-04-30 19:29:56 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Tabela "TEACHER" nie istnieje
+Table "TEACHER" not found; SQL statement:
+DROP TABLE `teacher`  [42102-195]
+2017-04-30 19:44:53 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Tabela "STUDENT_SUBJECT" nie istnieje
+Table "STUDENT_SUBJECT" not found; SQL statement:
+DROP TABLE `student_subject`  [42102-195]
+2017-04-30 20:00:27 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Tabela "PERSONALINFO" nie istnieje
+Table "PERSONALINFO" not found; SQL statement:
+DROP TABLE `personalinfo`  [42102-195]
+2017-04-30 22:26:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Tabela "STUDENTSUBJECT" nie istnieje
+Table "STUDENTSUBJECT" not found; SQL statement:
+DROP TABLE `studentsubject`  [42102-195]
+2017-04-30 22:52:11 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Błąd składniowy w wyrażeniu SQL "DROP TABLE GROUP[*] "; oczekiwano "identifier"
+Syntax error in SQL statement "DROP TABLE GROUP[*] "; expected "identifier"; SQL statement:
+drop table group [42001-194]
+2017-04-30 22:52:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Błąd składniowy w wyrażeniu SQL "DROP TABLE GROUP[*] "; oczekiwano "identifier"
+Syntax error in SQL statement "DROP TABLE GROUP[*] "; expected "identifier"; SQL statement:
+drop table group [42001-194]
+2017-04-30 22:52:36 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Błąd składniowy w wyrażeniu SQL "DROP ALTER[*] TABLE GROUP "; oczekiwano "TABLE, INDEX, USER, SEQUENCE, CONSTANT, TRIGGER, VIEW, ROLE, ALIAS, SCHEMA, ALL, DOMAIN, TYPE, DATATYPE, AGGREGATE"
+Syntax error in SQL statement "DROP ALTER[*] TABLE GROUP "; expected "TABLE, INDEX, USER, SEQUENCE, CONSTANT, TRIGGER, VIEW, ROLE, ALIAS, SCHEMA, ALL, DOMAIN, TYPE, DATATYPE, AGGREGATE"; SQL statement:
+drop alter table group [42001-194]
+2017-04-30 22:52:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Błąd składniowy w wyrażeniu SQL "DROP GROUP[*] TABLE "; oczekiwano "TABLE, INDEX, USER, SEQUENCE, CONSTANT, TRIGGER, VIEW, ROLE, ALIAS, SCHEMA, ALL, DOMAIN, TYPE, DATATYPE, AGGREGATE"
+Syntax error in SQL statement "DROP GROUP[*] TABLE "; expected "TABLE, INDEX, USER, SEQUENCE, CONSTANT, TRIGGER, VIEW, ROLE, ALIAS, SCHEMA, ALL, DOMAIN, TYPE, DATATYPE, AGGREGATE"; SQL statement:
+drop group table [42001-194]
+2017-04-30 22:54:40 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Błąd składniowy w wyrażeniu SQL "DROP TABLE GROUP[*]"; oczekiwano "identifier"
+Syntax error in SQL statement "DROP TABLE GROUP[*]"; expected "identifier"; SQL statement:
+DROP TABLE GROUP [42001-194]
+2017-04-30 22:54:52 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Błąd składniowy w wyrażeniu SQL "DROP TABLE GROUP[*] "; oczekiwano "identifier"
+Syntax error in SQL statement "DROP TABLE GROUP[*] "; expected "identifier"; SQL statement:
+DROP TABLE group [42001-194]

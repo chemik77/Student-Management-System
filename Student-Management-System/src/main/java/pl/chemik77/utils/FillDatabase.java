@@ -14,64 +14,24 @@ public class FillDatabase {
 		student1.setFirstName("Michał");
 		student1.setLastName("Kowalski");
 		student1.setDocument("1086361");
-		student1.setPesel("90021216352");
-		student1.setSex(2);
-		student1.setBirth(new Date());
-		student1.setPhone("775 521 546");
-		student1.setEmail("kowal23@gmail.com");
-		student1.setStreet("Wiśniowa");
-		student1.setHouse("5/2");
-		student1.setZip("59-521");
-		student1.setCity("Wrocław");
-		student1.setPhoto("/img/kowalski_michal.jpg");
 		studentDao.createOrUpdate(student1);
 		
 		Student student2 = new Student();
 		student2.setFirstName("Justyna");
 		student2.setLastName("Adamiak");
 		student2.setDocument("1075261");
-		student2.setPesel("90072528462");
-		student2.setSex(1);
-		student2.setBirth(new Date());
-		student2.setPhone("805 523 332");
-		student2.setEmail("adamiakjustyna@wp.pl");
-		student2.setStreet("Orzeszkowej");
-		student2.setHouse("1a");
-		student2.setZip("50-099");
-		student2.setCity("Wrocław");
-		student2.setPhoto("/img/adamiak_justyna.jpg");
 		studentDao.createOrUpdate(student2);
 		
 		Student student3 = new Student();
 		student3.setFirstName("Małgorzata");
 		student3.setLastName("Klim");
 		student3.setDocument("1082695");
-		student3.setPesel("91120326952");
-		student3.setSex(1);
-		student3.setBirth(new Date());
-		student3.setPhone("506 541 111");
-		student3.setEmail("klim.malgorzata@gmail.com");
-		student3.setStreet("Sosnowa");
-		student3.setHouse("23");
-		student3.setZip("49-022");
-		student3.setCity("Wałbrzych");
-		student3.setPhoto("/img/klim_malgorzata.jpg");
 		studentDao.createOrUpdate(student3);
 		
 		Student student4 = new Student();
 		student4.setFirstName("Wojciech");
 		student4.setLastName("Milewski");
 		student4.setDocument("1086591");
-		student4.setPesel("90061410233");
-		student4.setSex(2);
-		student4.setBirth(new Date());
-		student4.setPhone("503 215 411");
-		student4.setEmail("milo212@o2.pl");
-		student4.setStreet("Kłodzka");
-		student4.setHouse("15/1");
-		student4.setZip("53-233");
-		student4.setCity("Wrocław");
-		student4.setPhoto("/img/milewski_wojciech.jpg");
 		studentDao.createOrUpdate(student4);
 		
 	}

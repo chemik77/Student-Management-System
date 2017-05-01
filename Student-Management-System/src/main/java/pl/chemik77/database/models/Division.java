@@ -7,7 +7,7 @@ import com.j256.ormlite.field.ForeignCollectionField;
 public class Division implements BaseModel {
 	
 	@DatabaseField(generatedId = true)
-	private int id;
+	private int divisionID;
 	
 	@DatabaseField(columnName = "division_name", unique = true)
 	private String nameDivision;
@@ -22,11 +22,11 @@ public class Division implements BaseModel {
 	ForeignCollection<Student> students;
 
 	public int getId() {
-		return id;
+		return divisionID;
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		this.divisionID = id;
 	}
 
 	public String getNameDivision() {

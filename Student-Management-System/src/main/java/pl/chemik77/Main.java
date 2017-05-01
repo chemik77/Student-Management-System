@@ -1,7 +1,6 @@
 package pl.chemik77;
 
 import javafx.application.Application;
-import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import pl.chemik77.database.dbUtils.DbManager;
@@ -19,11 +18,8 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		
-		Pane root = (Pane) FxmlUtils.getPane("/fxml/Login.fxml");
-		Scene scene = new Scene(root);
-		primaryStage.setScene(scene);
-		primaryStage.setTitle(FxmlUtils.getBundles("main.title"));
-		primaryStage.show();
+		Pane root = null;
+		primaryStage = FxmlUtils.loadStage(root, "/fxml/Login.fxml", "main.title");
 		
 		DbManager.initDatabase();
 		FillDatabase.fillDatabase();

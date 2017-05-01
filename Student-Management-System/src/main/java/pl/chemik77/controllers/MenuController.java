@@ -1,6 +1,5 @@
 package pl.chemik77.controllers;
 
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import pl.chemik77.utils.FxmlUtils;
@@ -22,14 +21,17 @@ public class MenuController {
 	public void addStudentButtonOnAction(ActionEvent event) {
 		
 		Pane root = null;
-		FxmlUtils.loadView(root, "/fxml/StudentInformation.fxml");
-		
-		((Node) event.getSource()).getScene().getWindow().hide();
+		FxmlUtils.loadStage(root, "/fxml/StudentInformation.fxml", "menu.studentInformation");
+		FxmlUtils.hidePreviousWindow(event);
 		
 	}
 
 	@FXML 
-	public void listOfStudentsButtonOnAction() {
+	public void listOfStudentsButtonOnAction(ActionEvent event) {
+		
+		Pane root = null;
+		FxmlUtils.loadStage(root, "/fxml/ListOfStudents.fxml", "list.listOfStudents");
+		FxmlUtils.hidePreviousWindow(event);
 		
 	}
 

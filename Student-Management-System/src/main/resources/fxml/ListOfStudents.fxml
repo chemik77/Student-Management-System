@@ -6,18 +6,18 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-
-<BorderPane prefHeight="520.0" prefWidth="574.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<BorderPane prefHeight="520.0" prefWidth="574.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.chemik77.controllers.ListOfStudentsController">
    <center>
       <VBox alignment="CENTER" BorderPane.alignment="CENTER">
          <children>
             <Label alignment="TOP_LEFT" text="%list.listOfStudents" />
+
             <HBox alignment="CENTER_LEFT" spacing="20.0">
                <children>
                   <Label text="%list.searchStudent" />
-                  <ComboBox prefWidth="150.0" promptText="%list.searchBy" />
-                  <TextField />
-                  <Button mnemonicParsing="false" text="%list.search" />
+                  <ComboBox fx:id="searchComboBox" prefWidth="150.0" promptText="%list.searchBy" />
+                  <TextField fx:id="searchTextField" />
+                  <Button fx:id="searchButton" mnemonicParsing="false" onAction="#searchButtonOnAction" text="%list.search" />
                </children>
                <VBox.margin>
                   <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
@@ -46,6 +46,7 @@
                   </ContextMenu>
                </contextMenu>
             </TableView>
+             <Button fx:id="backButton" mnemonicParsing="false" onAction="#backButtonOnAction" text="%back" />
          </children>
       </VBox>
    </center>

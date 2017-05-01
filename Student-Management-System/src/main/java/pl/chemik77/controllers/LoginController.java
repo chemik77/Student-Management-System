@@ -2,11 +2,11 @@ package pl.chemik77.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 import pl.chemik77.utils.FxmlUtils;
 
 public class LoginController {
@@ -28,8 +28,8 @@ public class LoginController {
 	public void loginButtonOnAction(ActionEvent event) {
 		
 		Pane root = null;
-		FxmlUtils.loadView(root, "/fxml/Menu.fxml");
+		Stage stage = FxmlUtils.loadStage(root, "/fxml/Menu.fxml", "main.title");
 		
-		((Node) event.getSource()).getScene().getWindow().hide();
+		FxmlUtils.hidePreviousWindow(event);
 	}
 }

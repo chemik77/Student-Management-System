@@ -7,16 +7,13 @@ import com.j256.ormlite.field.ForeignCollectionField;
 public class Teacher implements BaseModel {
 
 	@DatabaseField(generatedId = true)
-	private int id;
+	private int teacherID;
 	
 	@DatabaseField(columnName = "teacher_name")
 	private String nameTeacher;
 	
-	@DatabaseField
-	private String phone;
-	
-	@DatabaseField
-	private String email;
+	@DatabaseField(columnName = "personal_information", foreign = true)
+	private PersonalInfo personalInfo;
 	
 	@DatabaseField(columnName = "division_id", foreign = true)
 	private Division division;
@@ -24,15 +21,12 @@ public class Teacher implements BaseModel {
 	@ForeignCollectionField
 	ForeignCollection<Subject> subjects;
 	
-	@ForeignCollectionField
-	ForeignCollection<Group> groups;
-
 	public int getId() {
-		return id;
+		return teacherID;
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		this.teacherID = id;
 	}
 
 	public String getNameTeacher() {
@@ -41,22 +35,6 @@ public class Teacher implements BaseModel {
 
 	public void setNameTeacher(String nameTeacher) {
 		this.nameTeacher = nameTeacher;
-	}
-
-	public String getPhone() {
-		return phone;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
 	}
 
 	public Division getDivision() {
@@ -75,12 +53,12 @@ public class Teacher implements BaseModel {
 		this.subjects = subjects;
 	}
 
-	public ForeignCollection<Group> getGroups() {
-		return groups;
+	public PersonalInfo getPersonalInfo() {
+		return personalInfo;
 	}
 
-	public void setGroups(ForeignCollection<Group> groups) {
-		this.groups = groups;
+	public void setPersonalInfo(PersonalInfo personalInfo) {
+		this.personalInfo = personalInfo;
 	}
 	
 }

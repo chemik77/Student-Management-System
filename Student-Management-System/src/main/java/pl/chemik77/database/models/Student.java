@@ -1,7 +1,5 @@
 package pl.chemik77.database.models;
 
-import java.util.Date;
-
 import com.j256.ormlite.dao.ForeignCollection;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.field.ForeignCollectionField;
@@ -11,7 +9,7 @@ import com.j256.ormlite.table.DatabaseTable;
 public class Student implements BaseModel{
 	
 	@DatabaseField(generatedId = true)
-	private int id;
+	private int studentID;
 	
 	@DatabaseField(columnName = "document", unique = true)
 	private String document;
@@ -22,35 +20,8 @@ public class Student implements BaseModel{
 	@DatabaseField(columnName = "last_name")
 	private String lastName;
 	
-	@DatabaseField(columnName = "pesel", unique = true)
-	private String pesel;
-	
-	@DatabaseField(columnName = "sex")
-	private int sex;
-	
-	@DatabaseField(columnName = "date_birth")
-	private Date birth;
-	
-	@DatabaseField(columnName = "phone_number")
-	private String phone;
-	
-	@DatabaseField(columnName = "email")
-	private String email;
-	
-	@DatabaseField(columnName = "street")
-	private String street;
-	
-	@DatabaseField(columnName = "house_number")
-	private String house;
-	
-	@DatabaseField(columnName = "zip_code")
-	private String zip;
-	
-	@DatabaseField(columnName = "city")
-	private String city;
-	
-	@DatabaseField(columnName = "photo_url")
-	private String photo;
+	@DatabaseField(columnName = "personal_information_id", foreign = true)
+	private PersonalInfo personalInfo;
 	
 	@DatabaseField(columnName = "division_id", foreign = true)
 	private Division division;
@@ -58,20 +29,17 @@ public class Student implements BaseModel{
 	@DatabaseField(columnName = "faculty_id", foreign = true)
 	private Faculty faculty;
 	
-	@DatabaseField(columnName = "group_id", foreign = true)
-	private Group group;
-	
 	@ForeignCollectionField
-	ForeignCollection<Subject> subjects;
+	ForeignCollection<StudentSubject> subjects;
 	
 	public Student(){}
 
 	public int getId() {
-		return id;
+		return studentID;
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		this.studentID = id;
 	}
 
 	public String getDocument() {
@@ -98,101 +66,9 @@ public class Student implements BaseModel{
 		this.lastName = lastName;
 	}
 
-	public String getPesel() {
-		return pesel;
-	}
-
-	public void setPesel(String pesel) {
-		this.pesel = pesel;
-	}
-
-	public int getSex() {
-		return sex;
-	}
-
-	public void setSex(int sex) {
-		this.sex = sex;
-	}
-
-	public Date getBirth() {
-		return birth;
-	}
-
-	public void setBirth(Date birth) {
-		this.birth = birth;
-	}
-
-	public String getPhone() {
-		return phone;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getStreet() {
-		return street;
-	}
-
-	public void setStreet(String street) {
-		this.street = street;
-	}
-
-	public String getHouse() {
-		return house;
-	}
-
-	public void setHouse(String house) {
-		this.house = house;
-	}
-
-	public String getZip() {
-		return zip;
-	}
-
-	public void setZip(String zip) {
-		this.zip = zip;
-	}
-
-	public String getCity() {
-		return city;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
-	}
-
-	public String getPhoto() {
-		return photo;
-	}
-
-	public void setPhoto(String photo) {
-		this.photo = photo;
-	}
-	
 	@Override
 	public String toString() {
 		return this.firstName + " " + this.lastName;
-	}
-
-	public ForeignCollection<Subject> getSubjects() {
-		return subjects;
-	}
-
-	public Group getGroup() {
-		return group;
-	}
-
-	public void setGroup(Group group) {
-		this.group = group;
 	}
 
 	public Division getDivision() {
@@ -211,8 +87,20 @@ public class Student implements BaseModel{
 		this.faculty = faculty;
 	}
 
-	public void setSubjects(ForeignCollection<Subject> subjects) {
+	public PersonalInfo getPersonalInfo() {
+		return personalInfo;
+	}
+
+	public void setPersonalInfo(PersonalInfo personalInfo) {
+		this.personalInfo = personalInfo;
+	}
+
+	public ForeignCollection<StudentSubject> getSubjects() {
+		return subjects;
+	}
+
+	public void setSubjects(ForeignCollection<StudentSubject> subjects) {
 		this.subjects = subjects;
 	}
-	
+
 }
