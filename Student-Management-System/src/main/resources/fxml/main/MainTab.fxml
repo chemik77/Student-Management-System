@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.GridPane?>
 
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.chemik77.controllers.MenuController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.chemik77.controllers.MainTabController">
    <children>
       <GridPane prefHeight="400.0" prefWidth="600.0">
         <columnConstraints>
@@ -26,10 +26,10 @@
          <children>
             <Button fx:id="addStudentButton" onAction="#addStudentButtonOnAction" mnemonicParsing="false" text="%menu.addStudent" GridPane.columnIndex="2" GridPane.rowIndex="1" />
             <Button fx:id="listOfStudentsButton" onAction="#listOfStudentsButtonOnAction" mnemonicParsing="false" text="%menu.display" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <Button fx:id="coursesButton" onAction="#coursesButtonOnAction" mnemonicParsing="false" text="%menu.display" GridPane.columnIndex="2" GridPane.rowIndex="3" />
             <Label text="%menu.studentInformation" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Label text="%menu.listOfStudents" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label text="%menu.courses" GridPane.columnIndex="1" GridPane.rowIndex="3" />
          </children>
       </GridPane>
    </children>

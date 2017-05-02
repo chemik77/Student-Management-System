@@ -9,17 +9,17 @@ import javafx.beans.property.StringProperty;
 import pl.chemik77.database.models.Faculty;
 import pl.chemik77.database.models.Teacher;
 
-public class SubjectFx {
+public class CourseFx {
 	
-	private IntegerProperty subjectID = new SimpleIntegerProperty();
-	private StringProperty nameSubject = new SimpleStringProperty();
+	private IntegerProperty courseID = new SimpleIntegerProperty();
+	private StringProperty nameCourse = new SimpleStringProperty();
 	private IntegerProperty grade = new SimpleIntegerProperty();
 	private IntegerProperty ects = new SimpleIntegerProperty();
 	private ObjectProperty<Faculty> faculty = new SimpleObjectProperty<>();
 	private ObjectProperty<Teacher> teacher = new SimpleObjectProperty<>();
 	
 	public IntegerProperty idProperty() {
-		return this.subjectID;
+		return this.courseID;
 	}
 	
 	public int getId() {
@@ -30,16 +30,16 @@ public class SubjectFx {
 		this.idProperty().set(id);
 	}
 	
-	public StringProperty nameSubjectProperty() {
-		return this.nameSubject;
+	public StringProperty nameCourseProperty() {
+		return this.nameCourse;
 	}
 	
-	public String getNameSubject() {
-		return this.nameSubjectProperty().get();
+	public String getNameCourse() {
+		return this.nameCourseProperty().get();
 	}
 	
-	public void setNameSubject(String nameSubject) {
-		this.nameSubjectProperty().set(nameSubject);
+	public void setNameCourse(String nameCourse) {
+		this.nameCourseProperty().set(nameCourse);
 	}
 	
 	public IntegerProperty gradeProperty() {

@@ -4,13 +4,13 @@ import com.j256.ormlite.dao.ForeignCollection;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.field.ForeignCollectionField;
 
-public class Subject implements BaseModel {
+public class Course implements BaseModel {
 	
 	@DatabaseField(generatedId = true)
-	private int subjectID;
+	private int courseID;
 	
-	@DatabaseField(columnName = "subject_name", unique = true)
-	private String nameSubject;
+	@DatabaseField(columnName = "course_name", unique = true)
+	private String nameCourse;
 
 	@DatabaseField
 	private int grade;
@@ -25,23 +25,23 @@ public class Subject implements BaseModel {
 	private Teacher teacher;
 	
 	@ForeignCollectionField
-	ForeignCollection<StudentSubject> students;
+	ForeignCollection<StudentCourse> students;
 	
 
 	public int getId() {
-		return subjectID;
+		return courseID;
 	}
 
 	public void setId(int id) {
-		this.subjectID = id;
+		this.courseID = id;
 	}
 
-	public String getNameSubject() {
-		return nameSubject;
+	public String getNamecourse() {
+		return nameCourse;
 	}
 
-	public void setNameSubject(String nameSubject) {
-		this.nameSubject = nameSubject;
+	public void setNamecourse(String nameCourse) {
+		this.nameCourse = nameCourse;
 	}
 
 	public int getGrade() {
@@ -76,11 +76,11 @@ public class Subject implements BaseModel {
 		this.teacher = teacher;
 	}
 
-	public ForeignCollection<StudentSubject> getStudents() {
+	public ForeignCollection<StudentCourse> getStudents() {
 		return students;
 	}
 
-	public void setStudents(ForeignCollection<StudentSubject> students) {
+	public void setStudents(ForeignCollection<StudentCourse> students) {
 		this.students = students;
 	}
 	

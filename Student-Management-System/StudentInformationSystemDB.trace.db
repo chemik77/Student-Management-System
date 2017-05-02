@@ -350,3 +350,11 @@ DROP TABLE GROUP [42001-194]
 org.h2.jdbc.JdbcSQLException: Błąd składniowy w wyrażeniu SQL "DROP TABLE GROUP[*] "; oczekiwano "identifier"
 Syntax error in SQL statement "DROP TABLE GROUP[*] "; expected "identifier"; SQL statement:
 DROP TABLE group [42001-194]
+2017-05-02 13:37:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Tabela "COURSE" nie istnieje
+Table "COURSE" not found; SQL statement:
+DROP TABLE `course`  [42102-195]
+2017-05-02 13:37:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Tabela "STUDENTCOURSE" nie istnieje
+Table "STUDENTCOURSE" not found; SQL statement:
+DROP TABLE `studentcourse`  [42102-195]

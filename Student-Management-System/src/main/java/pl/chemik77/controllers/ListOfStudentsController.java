@@ -23,7 +23,7 @@ public class ListOfStudentsController {
 	@FXML 
 	public void backButtonOnAction(ActionEvent event) {
 		Pane root = null;
-		FxmlUtils.loadStage(root, "/fxml/Menu.fxml", "menu.studentInformation");
+		FxmlUtils.loadStage(root, "/fxml/MainWindow.fxml", "menu.studentInformation");
 		FxmlUtils.hidePreviousWindow(event);
 	}
 	

@@ -2,23 +2,23 @@ package pl.chemik77.database.models;
 
 import com.j256.ormlite.field.DatabaseField;
 
-public class StudentSubject implements BaseModel {
+public class StudentCourse implements BaseModel {
 	
 	@DatabaseField(generatedId = true)
-	private int studentSubjectID;
+	private int studentCourseID;
 	
 	@DatabaseField(columnName = "student_id", foreign = true)
 	private Student student;
 	
-	@DatabaseField(columnName = "subject_id", foreign = true)
-	private Subject subject;
+	@DatabaseField(columnName = "course_id", foreign = true)
+	private Course course;
 
 	public int getId() {
-		return studentSubjectID;
+		return studentCourseID;
 	}
 
 	public void setId(int id) {
-		this.studentSubjectID = id;
+		this.studentCourseID = id;
 	}
 
 	public Student getStudent() {
@@ -29,12 +29,12 @@ public class StudentSubject implements BaseModel {
 		this.student = student;
 	}
 
-	public Subject getSubject() {
-		return subject;
+	public Course getCourse() {
+		return course;
 	}
 
-	public void setSubject(Subject subject) {
-		this.subject = subject;
+	public void setCourse(Course course) {
+		this.course = course;
 	}
 	
 	

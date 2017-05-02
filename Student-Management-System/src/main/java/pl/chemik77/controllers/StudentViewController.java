@@ -11,7 +11,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.DatePicker;
 
-public class StudentInformationController {
+public class StudentViewController {
 
 	@FXML TextField documentTextField;
 	@FXML TextField firstNameTextField;

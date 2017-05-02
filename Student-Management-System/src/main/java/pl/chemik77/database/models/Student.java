@@ -30,7 +30,7 @@ public class Student implements BaseModel{
 	private Faculty faculty;
 	
 	@ForeignCollectionField
-	ForeignCollection<StudentSubject> subjects;
+	ForeignCollection<StudentCourse> courses;
 	
 	public Student(){}
 
@@ -95,12 +95,12 @@ public class Student implements BaseModel{
 		this.personalInfo = personalInfo;
 	}
 
-	public ForeignCollection<StudentSubject> getSubjects() {
-		return subjects;
+	public ForeignCollection<StudentCourse> getCourses() {
+		return courses;
 	}
 
-	public void setSubjects(ForeignCollection<StudentSubject> subjects) {
-		this.subjects = subjects;
+	public void setCourses(ForeignCollection<StudentCourse> courses) {
+		this.courses = courses;
 	}
 
 }

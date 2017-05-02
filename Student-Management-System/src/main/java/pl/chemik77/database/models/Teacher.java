@@ -19,7 +19,7 @@ public class Teacher implements BaseModel {
 	private Division division;
 	
 	@ForeignCollectionField
-	ForeignCollection<Subject> subjects;
+	ForeignCollection<Course> courses;
 	
 	public int getId() {
 		return teacherID;
@@ -45,12 +45,12 @@ public class Teacher implements BaseModel {
 		this.division = division;
 	}
 
-	public ForeignCollection<Subject> getSubjects() {
-		return subjects;
+	public ForeignCollection<Course> getCourses() {
+		return courses;
 	}
 
-	public void setSubjects(ForeignCollection<Subject> subjects) {
-		this.subjects = subjects;
+	public void setCourses(ForeignCollection<Course> courses) {
+		this.courses = courses;
 	}
 
 	public PersonalInfo getPersonalInfo() {

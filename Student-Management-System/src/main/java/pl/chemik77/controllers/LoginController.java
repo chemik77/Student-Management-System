@@ -6,7 +6,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 import pl.chemik77.utils.FxmlUtils;
 
 public class LoginController {
@@ -27,9 +26,17 @@ public class LoginController {
 	@FXML
 	public void loginButtonOnAction(ActionEvent event) {
 		
-		Pane root = null;
-		Stage stage = FxmlUtils.loadStage(root, "/fxml/Menu.fxml", "main.title");
+		logIn(event);
 		
-		FxmlUtils.hidePreviousWindow(event);
 	}
+
+	private void logIn(ActionEvent event) {
+		
+		Pane root = null;
+		FxmlUtils.loadStage(root, "/fxml/MainWindow.fxml", "main.title");
+		FxmlUtils.hidePreviousWindow(event);
+		
+	}
+	
+	
 }

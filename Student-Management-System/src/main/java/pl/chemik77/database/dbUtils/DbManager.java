@@ -13,8 +13,8 @@ import pl.chemik77.database.models.Division;
 import pl.chemik77.database.models.Faculty;
 import pl.chemik77.database.models.PersonalInfo;
 import pl.chemik77.database.models.Student;
-import pl.chemik77.database.models.StudentSubject;
-import pl.chemik77.database.models.Subject;
+import pl.chemik77.database.models.StudentCourse;
+import pl.chemik77.database.models.Course;
 import pl.chemik77.database.models.Teacher;
 
 public class DbManager {
@@ -51,9 +51,9 @@ public class DbManager {
 			TableUtils.createTableIfNotExists(connectionSource, Student.class);
 			TableUtils.createTableIfNotExists(connectionSource, Division.class);
 			TableUtils.createTableIfNotExists(connectionSource, Faculty.class);
-			TableUtils.createTableIfNotExists(connectionSource, Subject.class);
+			TableUtils.createTableIfNotExists(connectionSource, Course.class);
 			TableUtils.createTableIfNotExists(connectionSource, Teacher.class);
-			TableUtils.createTableIfNotExists(connectionSource, StudentSubject.class);
+			TableUtils.createTableIfNotExists(connectionSource, StudentCourse.class);
 			TableUtils.createTableIfNotExists(connectionSource, PersonalInfo.class);
 		} catch (SQLException e) {
 			LOGGER.warn(e.getMessage());
@@ -65,9 +65,9 @@ public class DbManager {
 			TableUtils.dropTable(connectionSource, Student.class, true);
 			TableUtils.dropTable(connectionSource, Division.class, true);
 			TableUtils.dropTable(connectionSource, Faculty.class, true);
-			TableUtils.dropTable(connectionSource, Subject.class, true);
+			TableUtils.dropTable(connectionSource, Course.class, true);
 			TableUtils.dropTable(connectionSource, Teacher.class, true);
-			TableUtils.dropTable(connectionSource, StudentSubject.class, true);
+			TableUtils.dropTable(connectionSource, StudentCourse.class, true);
 			TableUtils.dropTable(connectionSource, PersonalInfo.class, true);
 		} catch (SQLException e) {
 			LOGGER.warn(e.getMessage());
