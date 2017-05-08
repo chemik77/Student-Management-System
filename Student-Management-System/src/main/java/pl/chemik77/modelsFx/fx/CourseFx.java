@@ -13,22 +13,42 @@ public class CourseFx {
 	
 	private IntegerProperty courseID = new SimpleIntegerProperty();
 	private StringProperty nameCourse = new SimpleStringProperty();
-	private IntegerProperty grade = new SimpleIntegerProperty();
+	private StringProperty codeCourse = new SimpleStringProperty();
+	
 	private IntegerProperty ects = new SimpleIntegerProperty();
 	private ObjectProperty<Faculty> faculty = new SimpleObjectProperty<>();
 	private ObjectProperty<Teacher> teacher = new SimpleObjectProperty<>();
 	
-	public IntegerProperty idProperty() {
+
+	public IntegerProperty courseIDProperty() {
 		return this.courseID;
 	}
 	
-	public int getId() {
-		return this.idProperty().get();
+
+	public int getCourseID() {
+		return this.courseIDProperty().get();
 	}
 	
-	public void setId(int id) {
-		this.idProperty().set(id);
+
+	public void setCourseID(final int courseID) {
+		this.courseIDProperty().set(courseID);
 	}
+	
+
+	public StringProperty codeCourseProperty() {
+		return this.codeCourse;
+	}
+	
+
+	public String getCodeCourse() {
+		return this.codeCourseProperty().get();
+	}
+	
+
+	public void setCodeCourse(final String codeCourse) {
+		this.codeCourseProperty().set(codeCourse);
+	}
+	
 	
 	public StringProperty nameCourseProperty() {
 		return this.nameCourse;
@@ -41,19 +61,7 @@ public class CourseFx {
 	public void setNameCourse(String nameCourse) {
 		this.nameCourseProperty().set(nameCourse);
 	}
-	
-	public IntegerProperty gradeProperty() {
-		return this.grade;
-	}
-	
-	public int getGrade() {
-		return this.gradeProperty().get();
-	}
-	
-	public void setGrade(int grade) {
-		this.gradeProperty().set(grade);
-	}
-	
+
 	public IntegerProperty ectsProperty() {
 		return this.ects;
 	}
@@ -89,6 +97,8 @@ public class CourseFx {
 	public void setTeacher(Teacher teacher) {
 		this.teacherProperty().set(teacher);
 	}
+
+
 	
 	
 }

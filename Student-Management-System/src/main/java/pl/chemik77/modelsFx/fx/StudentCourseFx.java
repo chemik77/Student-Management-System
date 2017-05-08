@@ -12,6 +12,7 @@ public class StudentCourseFx {
 	private IntegerProperty studentCourseID = new SimpleIntegerProperty();
 	private ObjectProperty<Student> student = new SimpleObjectProperty<>();
 	private ObjectProperty<Course> course = new SimpleObjectProperty<>();
+	private IntegerProperty grade = new SimpleIntegerProperty();
 	
 	public IntegerProperty studentCourseIDProperty() {
 		return this.studentCourseID;
@@ -49,5 +50,17 @@ public class StudentCourseFx {
 		this.courseProperty().set(course);
 	}
 	
+	
+	public IntegerProperty gradeProperty() {
+		return this.grade;
+	}
+	
+	public int getGrade() {
+		return this.gradeProperty().get();
+	}
+	
+	public void setGrade(int grade) {
+		this.gradeProperty().set(grade);
+	}
 	
 }

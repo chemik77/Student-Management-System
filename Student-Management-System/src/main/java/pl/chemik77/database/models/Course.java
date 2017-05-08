@@ -11,10 +11,10 @@ public class Course implements BaseModel {
 	
 	@DatabaseField(columnName = "course_name", unique = true)
 	private String nameCourse;
-
-	@DatabaseField
-	private int grade;
 	
+	@DatabaseField(columnName = "course_code", unique = true)
+	private String codeCourse;
+
 	@DatabaseField
 	private int ects;
 	
@@ -28,28 +28,28 @@ public class Course implements BaseModel {
 	ForeignCollection<StudentCourse> students;
 	
 
-	public int getId() {
+	public int getCourseID() {
 		return courseID;
 	}
 
-	public void setId(int id) {
-		this.courseID = id;
+	public void setCourseID(int courseID) {
+		this.courseID = courseID;
 	}
 
-	public String getNamecourse() {
+	public String getNameCourse() {
 		return nameCourse;
 	}
 
-	public void setNamecourse(String nameCourse) {
+	public void setNameCourse(String nameCourse) {
 		this.nameCourse = nameCourse;
 	}
 
-	public int getGrade() {
-		return grade;
+	public String getCodeCourse() {
+		return codeCourse;
 	}
 
-	public void setGrade(int grade) {
-		this.grade = grade;
+	public void setCodeCourse(String codeCourse) {
+		this.codeCourse = codeCourse;
 	}
 
 	public int getEcts() {
@@ -83,5 +83,5 @@ public class Course implements BaseModel {
 	public void setStudents(ForeignCollection<StudentCourse> students) {
 		this.students = students;
 	}
-	
+
 }

@@ -13,7 +13,7 @@ public class PersonalInfo implements BaseModel {
 	private String pesel;
 	
 	@DatabaseField(columnName = "sex")
-	private int sex;
+	private char sex;
 	
 	@DatabaseField(columnName = "date_birth")
 	private Date birth;
@@ -55,11 +55,11 @@ public class PersonalInfo implements BaseModel {
 		this.pesel = pesel;
 	}
 
-	public int getSex() {
+	public char getSex() {
 		return sex;
 	}
 
-	public void setSex(int sex) {
+	public void setSex(char sex) {
 		this.sex = sex;
 	}
 

@@ -12,15 +12,19 @@ public class StudentCourse implements BaseModel {
 	
 	@DatabaseField(columnName = "course_id", foreign = true)
 	private Course course;
+	
+	@DatabaseField
+	private int grade;
 
-	public int getId() {
+
+	public int getStudentCourseID() {
 		return studentCourseID;
 	}
 
-	public void setId(int id) {
-		this.studentCourseID = id;
+	public void setStudentCourseID(int studentCourseID) {
+		this.studentCourseID = studentCourseID;
 	}
-
+	
 	public Student getStudent() {
 		return student;
 	}
@@ -35,6 +39,14 @@ public class StudentCourse implements BaseModel {
 
 	public void setCourse(Course course) {
 		this.course = course;
+	}
+
+	public int getGrade() {
+		return grade;
+	}
+
+	public void setGrade(int grade) {
+		this.grade = grade;
 	}
 	
 	

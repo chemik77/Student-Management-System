@@ -1,35 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.chemik77.controllers.TopMenuTabController">
+<Pane maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.chemik77.controllers.TopMenuTabController">
    <children>
-      <TabPane tabClosingPolicy="UNAVAILABLE">
-        <tabs>
-          <Tab closable="false" fx:id="mainTab" onSelectionChanged="#mainTabOnSelection" text="%topMenuTab.main">
-               <content>
-                  <Pane />
-               </content>
-          </Tab>
-          <Tab closable="false" fx:id="studentsTab" onSelectionChanged="#studentsTabOnSelection" text="%topMenuTab.students">
-               <content>
-                  <Pane />
-               </content>
-          </Tab>
-            <Tab closable="false" fx:id="coursesTab" onSelectionChanged="#coursesTabOnSelection" text="%topMenuTab.courses">
-               <content>
-                  <Pane />
-               </content>
-            </Tab>
-            <Tab closable="false" fx:id="teachersTab" onSelectionChanged="#teachersTabOnSelection" text="%topMenuTab.teachers">
-               <content>
-                  <Pane />
-               </content>
-            </Tab>
-        </tabs>
-      </TabPane>
+      <HBox prefWidth="900.0">
+         <children>
+            <TabPane prefWidth="900.0" tabClosingPolicy="UNAVAILABLE" tabMinHeight="50.0" tabMinWidth="200.0">
+              <tabs>
+                <Tab fx:id="studentsTab" closable="false" onSelectionChanged="#studentsTabOnSelection" text="%topMenuTab.students">
+                     <content>
+                        <Pane />
+                     </content>
+                </Tab>
+                  <Tab fx:id="coursesTab" closable="false" onSelectionChanged="#coursesTabOnSelection" text="%topMenuTab.courses">
+                     <content>
+                        <Pane />
+                     </content>
+                  </Tab>
+                  <Tab fx:id="teachersTab" closable="false" onSelectionChanged="#teachersTabOnSelection" text="%topMenuTab.teachers">
+                     <content>
+                        <Pane />
+                     </content>
+                  </Tab>
+              </tabs>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </TabPane>
+         </children>
+      </HBox>
    </children>
 </Pane>
