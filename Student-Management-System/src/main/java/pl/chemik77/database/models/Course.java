@@ -84,4 +84,9 @@ public class Course implements BaseModel {
 		this.students = students;
 	}
 
+	@Override
+	public String toString() {
+		return this.nameCourse;
+	}
+	
 }

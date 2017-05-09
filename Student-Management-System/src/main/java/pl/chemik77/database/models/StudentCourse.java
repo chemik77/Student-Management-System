@@ -14,7 +14,7 @@ public class StudentCourse implements BaseModel {
 	private Course course;
 	
 	@DatabaseField
-	private int grade;
+	private double grade;
 
 
 	public int getStudentCourseID() {
@@ -41,11 +41,11 @@ public class StudentCourse implements BaseModel {
 		this.course = course;
 	}
 
-	public int getGrade() {
+	public double getGrade() {
 		return grade;
 	}
 
-	public void setGrade(int grade) {
+	public void setGrade(double grade) {
 		this.grade = grade;
 	}
 	

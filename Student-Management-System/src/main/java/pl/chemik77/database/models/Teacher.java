@@ -9,8 +9,14 @@ public class Teacher implements BaseModel {
 	@DatabaseField(generatedId = true)
 	private int teacherID;
 	
-	@DatabaseField(columnName = "teacher_name")
-	private String nameTeacher;
+	@DatabaseField(columnName = "last_name")
+	private String lastNameTeacher;
+	
+	@DatabaseField(columnName = "first_name")
+	private String firstNameTeacher;
+	
+	@DatabaseField
+	private String degree;
 	
 	@DatabaseField(columnName = "personal_information", foreign = true)
 	private PersonalInfo personalInfo;
@@ -21,22 +27,46 @@ public class Teacher implements BaseModel {
 	@ForeignCollectionField
 	ForeignCollection<Course> courses;
 	
-	public int getId() {
+	public int getTeacherID() {
 		return teacherID;
 	}
 
-	public void setId(int id) {
-		this.teacherID = id;
+	public void setTeacherID(int teacherID) {
+		this.teacherID = teacherID;
 	}
 
-	public String getNameTeacher() {
-		return nameTeacher;
+	public String getLastNameTeacher() {
+		return lastNameTeacher;
 	}
 
-	public void setNameTeacher(String nameTeacher) {
-		this.nameTeacher = nameTeacher;
+	public void setLastNameTeacher(String lastNameTeacher) {
+		this.lastNameTeacher = lastNameTeacher;
 	}
 
+	public String getFirstNameTeacher() {
+		return firstNameTeacher;
+	}
+
+	public void setFirstNameTeacher(String firstNameTeacher) {
+		this.firstNameTeacher = firstNameTeacher;
+	}
+
+	public String getDegree() {
+		return degree;
+	}
+
+	public void setDegree(String degree) {
+		this.degree = degree;
+	}
+	
+	public PersonalInfo getPersonalInfo() {
+		return personalInfo;
+	}
+
+	public void setPersonalInfo(PersonalInfo personalInfo) {
+		this.personalInfo = personalInfo;
+	}
+	
 	public Division getDivision() {
 		return division;
 	}
@@ -53,12 +83,9 @@ public class Teacher implements BaseModel {
 		this.courses = courses;
 	}
 
-	public PersonalInfo getPersonalInfo() {
-		return personalInfo;
-	}
-
-	public void setPersonalInfo(PersonalInfo personalInfo) {
-		this.personalInfo = personalInfo;
+	@Override
+	public String toString() {
+		return (this.degree + " " + this.firstNameTeacher + " " + this.lastNameTeacher);
 	}
 	
 }

@@ -12,7 +12,9 @@ import pl.chemik77.database.models.PersonalInfo;
 public class TeacherFx {
 	
 	private IntegerProperty teacherID = new SimpleIntegerProperty();
-	private StringProperty nameTeacher = new SimpleStringProperty();
+	private StringProperty lastNameTeacher = new SimpleStringProperty();
+	private StringProperty firstNameTeacher = new SimpleStringProperty();
+	private StringProperty degree = new SimpleStringProperty();
 	private ObjectProperty<PersonalInfo> personalInfo = new SimpleObjectProperty<>();
 	private ObjectProperty<Division> division = new SimpleObjectProperty<>();
 	
@@ -27,22 +29,63 @@ public class TeacherFx {
 	}
 	
 
-	public void setTeacherID(final int teacherID) {
+	public void setTeacherID(int teacherID) {
 		this.teacherIDProperty().set(teacherID);
 	}
 	
-	
-	public StringProperty nameTeacherProperty() {
-		return this.nameTeacher;
+
+	public StringProperty lastNameTeacherProperty() {
+		return this.lastNameTeacher;
 	}
 	
-	public String getNameTeacher() {
-		return this.nameTeacherProperty().get();
+
+
+	public String getLastNameTeacher() {
+		return this.lastNameTeacherProperty().get();
 	}
 	
-	public void setNameTeacher(String nameTeacher) {
-		this.nameTeacherProperty().set(nameTeacher);
+
+
+	public void setLastNameTeacher(String lastNameTeacher) {
+		this.lastNameTeacherProperty().set(lastNameTeacher);
 	}
+	
+
+
+	public StringProperty firstNameTeacherProperty() {
+		return this.firstNameTeacher;
+	}
+	
+
+
+	public String getFirstNameTeacher() {
+		return this.firstNameTeacherProperty().get();
+	}
+	
+
+
+	public void setFirstNameTeacher(String firstNameTeacher) {
+		this.firstNameTeacherProperty().set(firstNameTeacher);
+	}
+	
+
+
+	public StringProperty degreeProperty() {
+		return this.degree;
+	}
+	
+
+
+	public String getDegree() {
+		return this.degreeProperty().get();
+	}
+	
+
+
+	public void setDegree(String degree) {
+		this.degreeProperty().set(degree);
+	}
+	
 
 	public ObjectProperty<Division> divisionProperty() {
 		return this.division;
@@ -67,10 +110,9 @@ public class TeacherFx {
 	}
 	
 
-	public void setPersonalInfo(final PersonalInfo personalInfo) {
+	public void setPersonalInfo(PersonalInfo personalInfo) {
 		this.personalInfoProperty().set(personalInfo);
 	}
-	
-	
+
 	
 }

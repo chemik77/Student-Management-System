@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.StackPane?>
 
-<StackPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.chemik77.controllers.other.PersonalInfoController">
    <children>
       <GridPane prefHeight="100.0" prefWidth="500.0">
         <columnConstraints>
@@ -37,17 +37,17 @@
             <Label text="%personalinfo.house" GridPane.columnIndex="4" GridPane.rowIndex="3" />
             <Label text="%personalinfo.zip" GridPane.columnIndex="4" GridPane.rowIndex="4" />
             <Label text="%personalinfo.city" GridPane.columnIndex="4" GridPane.rowIndex="5" />
-            <Label GridPane.columnIndex="1" />
-            <Label GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Label GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <Label GridPane.columnIndex="5" />
-            <Label GridPane.columnIndex="5" GridPane.rowIndex="1" />
-            <Label GridPane.columnIndex="5" GridPane.rowIndex="2" />
-            <Label GridPane.columnIndex="5" GridPane.rowIndex="3" />
-            <Label GridPane.columnIndex="5" GridPane.rowIndex="4" />
-            <Label GridPane.columnIndex="5" GridPane.rowIndex="5" />
+            <Label fx:id="lastLabel" GridPane.columnIndex="1" />
+            <Label fx:id="firstLabel" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="peselLabel" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="sexLabel" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label fx:id="birthLabel" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label fx:id="phoneLabel" GridPane.columnIndex="5" />
+            <Label fx:id="emailLabel" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+            <Label fx:id="streetLabel" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+            <Label fx:id="houseLabel" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+            <Label fx:id="zipLabel" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+            <Label fx:id="cityLabel" GridPane.columnIndex="5" GridPane.rowIndex="5" />
          </children>
          <StackPane.margin>
             <Insets />

@@ -66,11 +66,6 @@ public class Student implements BaseModel{
 		this.lastName = lastName;
 	}
 
-	@Override
-	public String toString() {
-		return this.firstName + " " + this.lastName;
-	}
-
 	public Division getDivision() {
 		return division;
 	}
@@ -103,4 +98,9 @@ public class Student implements BaseModel{
 		this.courses = courses;
 	}
 
+	@Override 
+	public String toString() {
+		return (this.firstName + " " + this.lastName);
+	}
+	
 }

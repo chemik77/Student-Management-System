@@ -61,4 +61,8 @@ public class Division implements BaseModel {
 		this.students = students;
 	}
 	
+	@Override
+	public String toString() {
+		return this.nameDivision;
+	}
 }

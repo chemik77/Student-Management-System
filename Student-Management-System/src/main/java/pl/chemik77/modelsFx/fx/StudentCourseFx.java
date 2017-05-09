@@ -1,7 +1,9 @@
 package pl.chemik77.modelsFx.fx;
 
+import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import pl.chemik77.database.models.Student;
@@ -12,7 +14,7 @@ public class StudentCourseFx {
 	private IntegerProperty studentCourseID = new SimpleIntegerProperty();
 	private ObjectProperty<Student> student = new SimpleObjectProperty<>();
 	private ObjectProperty<Course> course = new SimpleObjectProperty<>();
-	private IntegerProperty grade = new SimpleIntegerProperty();
+	private DoubleProperty grade = new SimpleDoubleProperty();
 	
 	public IntegerProperty studentCourseIDProperty() {
 		return this.studentCourseID;
@@ -51,15 +53,15 @@ public class StudentCourseFx {
 	}
 	
 	
-	public IntegerProperty gradeProperty() {
+	public DoubleProperty gradeProperty() {
 		return this.grade;
 	}
 	
-	public int getGrade() {
+	public double getGrade() {
 		return this.gradeProperty().get();
 	}
 	
-	public void setGrade(int grade) {
+	public void setGrade(double grade) {
 		this.gradeProperty().set(grade);
 	}
 	

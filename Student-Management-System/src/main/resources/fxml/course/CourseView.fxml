@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.chemik77.controllers.course.CourseViewController">
    <top>
       <VBox BorderPane.alignment="CENTER">
          <children>
@@ -20,18 +20,6 @@
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
    </padding>
-   <bottom>
-      <HBox spacing="10.0" BorderPane.alignment="CENTER">
-         <padding>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-         </padding></HBox>
-   </bottom>
-   <right>
-      <VBox spacing="10.0" BorderPane.alignment="CENTER">
-         <padding>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-         </padding></VBox>
-   </right>
    <center>
       <VBox spacing="10.0" BorderPane.alignment="CENTER">
          <children>
@@ -52,13 +40,13 @@
                   <Label text="%courseview.name" />
                   <Label text="%courseview.code" GridPane.rowIndex="1" />
                   <Label text="%courseview.ects" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                  <TextField GridPane.columnIndex="1" />
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Label GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                  <TextField fx:id="courseNameTextField" GridPane.columnIndex="1" />
+                  <TextField fx:id="courseCodeTextField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label fx:id="ectsLabel" GridPane.columnIndex="4" GridPane.rowIndex="2" />
                   <Label text="%courseview.faculty" GridPane.columnIndex="3" />
-                  <Label GridPane.columnIndex="4" />
+                  <Label fx:id="facultyLabel" GridPane.columnIndex="4" />
                   <Label text="%courseview.teacher" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                  <Label GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                  <Label fx:id="teacherLabel" GridPane.columnIndex="4" GridPane.rowIndex="1" />
                </children>
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -66,9 +54,9 @@
             </GridPane>
             <TableView>
               <columns>
-                <TableColumn prefWidth="150.0" text="%courseview.student" />
-                <TableColumn prefWidth="150.0" text="%courseview.document" />
-                  <TableColumn prefWidth="150.0" text="%courseview.grade" />
+                <TableColumn fx:id="studentColumn" prefWidth="150.0" text="%courseview.student" />
+                <TableColumn fx:id="documentColumn" prefWidth="150.0" text="%courseview.document" />
+                  <TableColumn fx:id="gradeColumn" prefWidth="150.0" text="%courseview.grade" />
               </columns>
               <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -80,14 +68,28 @@
          </padding></VBox>
    </center>
    <left>
-      <VBox spacing="20.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" spacing="20.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" text="%courseview.add" />
-            <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" text="%courseview.edit" />
-            <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" text="%courseview.delete" />
+            <Label text="%courseview.grade" />
+            <Separator prefHeight="5.0" prefWidth="0.0" />
+            <Button fx:id="addButton" mnemonicParsing="false" onAction="#addButtonOnAction" prefHeight="75.0" prefWidth="75.0" text="%courseview.add" />
+            <Button fx:id="editButton" mnemonicParsing="false" onAction="#editButtonOnAction" prefHeight="75.0" prefWidth="75.0" text="%courseview.edit" />
+            <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#deleteButtonOnAction" prefHeight="75.0" prefWidth="75.0" text="%courseview.delete" />
          </children>
          <padding>
             <Insets bottom="10.0" left="10.0" right="10.0" top="140.0" />
          </padding></VBox>
    </left>
+      <bottom>
+      <HBox spacing="10.0" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding></HBox>
+   </bottom>
+   <right>
+      <VBox spacing="10.0" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding></VBox>
+   </right>
 </BorderPane>
