@@ -7,10 +7,10 @@ public class StudentCourse implements BaseModel {
 	@DatabaseField(generatedId = true)
 	private int studentCourseID;
 	
-	@DatabaseField(columnName = "student_id", foreign = true)
+	@DatabaseField(columnName = "student_id", foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true)
 	private Student student;
 	
-	@DatabaseField(columnName = "course_id", foreign = true)
+	@DatabaseField(columnName = "course_id", foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true)
 	private Course course;
 	
 	@DatabaseField

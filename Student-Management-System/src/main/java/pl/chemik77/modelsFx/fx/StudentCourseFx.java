@@ -6,14 +6,12 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
-import pl.chemik77.database.models.Student;
-import pl.chemik77.database.models.Course;
 
 public class StudentCourseFx {
 	
 	private IntegerProperty studentCourseID = new SimpleIntegerProperty();
-	private ObjectProperty<Student> student = new SimpleObjectProperty<>();
-	private ObjectProperty<Course> course = new SimpleObjectProperty<>();
+	private ObjectProperty<StudentFx> studentFx = new SimpleObjectProperty<>();
+	private ObjectProperty<CourseFx> courseFx = new SimpleObjectProperty<>();
 	private DoubleProperty grade = new SimpleDoubleProperty();
 	
 	public IntegerProperty studentCourseIDProperty() {
@@ -28,30 +26,6 @@ public class StudentCourseFx {
 		this.studentCourseIDProperty().set(studentCourseID);
 	}
 	
-	public ObjectProperty<Student> studentProperty() {
-		return this.student;
-	}
-	
-	public Student getStudent() {
-		return this.studentProperty().get();
-	}
-	
-	public void setStudent(Student student) {
-		this.studentProperty().set(student);
-	}
-	
-	public ObjectProperty<Course> courseProperty() {
-		return this.course;
-	}
-	
-	public Course getCourse() {
-		return this.courseProperty().get();
-	}
-	
-	public void setCourse(Course course) {
-		this.courseProperty().set(course);
-	}
-	
 	
 	public DoubleProperty gradeProperty() {
 		return this.grade;
@@ -64,5 +38,35 @@ public class StudentCourseFx {
 	public void setGrade(double grade) {
 		this.gradeProperty().set(grade);
 	}
+
+	public ObjectProperty<StudentFx> studentFxProperty() {
+		return this.studentFx;
+	}
+	
+
+	public StudentFx getStudentFx() {
+		return this.studentFxProperty().get();
+	}
+	
+
+	public void setStudentFx(StudentFx studentFx) {
+		this.studentFxProperty().set(studentFx);
+	}
+	
+
+	public ObjectProperty<CourseFx> courseFxProperty() {
+		return this.courseFx;
+	}
+	
+
+	public CourseFx getCourseFx() {
+		return this.courseFxProperty().get();
+	}
+	
+
+	public void setCourseFx(CourseFx courseFx) {
+		this.courseFxProperty().set(courseFx);
+	}
+	
 	
 }

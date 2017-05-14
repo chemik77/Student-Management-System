@@ -18,10 +18,10 @@ public class Teacher implements BaseModel {
 	@DatabaseField
 	private String degree;
 	
-	@DatabaseField(columnName = "personal_information", foreign = true)
+	@DatabaseField(columnName = "personal_information_id", foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true)
 	private PersonalInfo personalInfo;
 	
-	@DatabaseField(columnName = "division_id", foreign = true)
+	@DatabaseField(columnName = "division_id", foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true)
 	private Division division;
 	
 	@ForeignCollectionField

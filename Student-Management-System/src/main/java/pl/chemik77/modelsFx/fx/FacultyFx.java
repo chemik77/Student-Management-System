@@ -6,13 +6,12 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import pl.chemik77.database.models.Division;
 
 public class FacultyFx {
 	
 	private IntegerProperty facultyID = new SimpleIntegerProperty();
 	private StringProperty nameFaculty = new SimpleStringProperty();
-	private ObjectProperty<Division> division = new SimpleObjectProperty<>();
+	private ObjectProperty<DivisionFx> divisionFx = new SimpleObjectProperty<>();
 	
 
 	public StringProperty nameFacultyProperty() {
@@ -25,18 +24,6 @@ public class FacultyFx {
 	
 	public void setNameFaculty(String nameFaculty) {
 		this.nameFacultyProperty().set(nameFaculty);
-	}
-	
-	public ObjectProperty<Division> divisionProperty() {
-		return this.division;
-	}
-	
-	public Division getDivision() {
-		return this.divisionProperty().get();
-	}
-	
-	public void setDivision(Division division) {
-		this.divisionProperty().set(division);
 	}
 
 	public IntegerProperty facultyIDProperty() {
@@ -52,6 +39,21 @@ public class FacultyFx {
 	public void setFacultyID(int facultyID) {
 		this.facultyIDProperty().set(facultyID);
 	}
+
+	public ObjectProperty<DivisionFx> divisionFxProperty() {
+		return this.divisionFx;
+	}
+	
+
+	public DivisionFx getDivisionFx() {
+		return this.divisionFxProperty().get();
+	}
+	
+
+	public void setDivisionFx(DivisionFx divisionFx) {
+		this.divisionFxProperty().set(divisionFx);
+	}
+	
 	
 	
 	

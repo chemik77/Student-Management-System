@@ -6,8 +6,6 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import pl.chemik77.database.models.Faculty;
-import pl.chemik77.database.models.Teacher;
 
 public class CourseFx {
 	
@@ -16,8 +14,8 @@ public class CourseFx {
 	private StringProperty codeCourse = new SimpleStringProperty();
 	
 	private IntegerProperty ects = new SimpleIntegerProperty();
-	private ObjectProperty<Faculty> faculty = new SimpleObjectProperty<>();
-	private ObjectProperty<Teacher> teacher = new SimpleObjectProperty<>();
+	private ObjectProperty<FacultyFx> facultyFx = new SimpleObjectProperty<>();
+	private ObjectProperty<TeacherFx> teacherFx = new SimpleObjectProperty<>();
 	
 
 	public IntegerProperty courseIDProperty() {
@@ -74,28 +72,28 @@ public class CourseFx {
 		this.ectsProperty().set(ects);
 	}
 	
-	public ObjectProperty<Faculty> facultyProperty() {
-		return this.faculty;
+	public ObjectProperty<FacultyFx> facultyFxProperty() {
+		return this.facultyFx;
 	}
 	
-	public Faculty getFaculty() {
-		return this.facultyProperty().get();
+	public FacultyFx getFacultyFx() {
+		return this.facultyFxProperty().get();
 	}
 	
-	public void setFaculty(Faculty faculty) {
-		this.facultyProperty().set(faculty);
+	public void setFacultyFx(FacultyFx facultyFx) {
+		this.facultyFxProperty().set(facultyFx);
 	}
 	
-	public ObjectProperty<Teacher> teacherProperty() {
-		return this.teacher;
+	public ObjectProperty<TeacherFx> teacherFxProperty() {
+		return this.teacherFx;
 	}
 	
-	public Teacher getTeacher() {
-		return this.teacherProperty().get();
+	public TeacherFx getTeacherFx() {
+		return this.teacherFxProperty().get();
 	}
 	
-	public void setTeacher(Teacher teacher) {
-		this.teacherProperty().set(teacher);
+	public void setTeacherFx(TeacherFx teacherFx) {
+		this.teacherFxProperty().set(teacherFx);
 	}
 
 

@@ -30,6 +30,8 @@
                   <ColumnConstraints hgrow="SOMETIMES" prefWidth="25.0" />
                   <ColumnConstraints hgrow="SOMETIMES" prefWidth="25.0" />
                   <ColumnConstraints hgrow="SOMETIMES" />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
               </columnConstraints>
               <rowConstraints>
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -53,8 +55,9 @@
                   <Insets left="10.0" right="10.0" />
                </padding>
             </GridPane>
-            <TableView>
+            <TableView fx:id="courseTableView" onMouseClicked="#teacherOnMouseClicked">
               <columns>
+              	<TableColumn fx:id="teacherNameColumn" prefWidth="150.0" text="%teacherview.name" />
                 <TableColumn fx:id="courseNameColumn" prefWidth="150.0" text="%teacherview.coursename" />
                 <TableColumn fx:id="courseCodeColumn" prefWidth="150.0" text="%teacherview.coursecode" />
               </columns>

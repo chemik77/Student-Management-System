@@ -20,13 +20,13 @@ public class Student implements BaseModel{
 	@DatabaseField(columnName = "last_name")
 	private String lastName;
 	
-	@DatabaseField(columnName = "personal_information_id", foreign = true)
+	@DatabaseField(columnName = "personal_information_id", foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true)
 	private PersonalInfo personalInfo;
 	
-	@DatabaseField(columnName = "division_id", foreign = true)
+	@DatabaseField(columnName = "division_id", foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true)
 	private Division division;
 	
-	@DatabaseField(columnName = "faculty_id", foreign = true)
+	@DatabaseField(columnName = "faculty_id", foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true)
 	private Faculty faculty;
 	
 	@ForeignCollectionField

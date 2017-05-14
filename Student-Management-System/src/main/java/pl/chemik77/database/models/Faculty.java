@@ -12,7 +12,7 @@ public class Faculty implements BaseModel {
 	@DatabaseField(columnName = "faculty_name", unique = true)
 	private String nameFaculty;
 	
-	@DatabaseField(columnName = "division_id", foreign = true)
+	@DatabaseField(columnName = "division_id", foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true)
 	private Division division;
 	
 	@ForeignCollectionField

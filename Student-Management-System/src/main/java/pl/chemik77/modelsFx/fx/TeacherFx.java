@@ -6,8 +6,6 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import pl.chemik77.database.models.Division;
-import pl.chemik77.database.models.PersonalInfo;
 
 public class TeacherFx {
 	
@@ -15,8 +13,8 @@ public class TeacherFx {
 	private StringProperty lastNameTeacher = new SimpleStringProperty();
 	private StringProperty firstNameTeacher = new SimpleStringProperty();
 	private StringProperty degree = new SimpleStringProperty();
-	private ObjectProperty<PersonalInfo> personalInfo = new SimpleObjectProperty<>();
-	private ObjectProperty<Division> division = new SimpleObjectProperty<>();
+	private ObjectProperty<PersonalInfoFx> personalInfoFx = new SimpleObjectProperty<>();
+	private ObjectProperty<DivisionFx> divisionFx = new SimpleObjectProperty<>();
 	
 
 	public IntegerProperty teacherIDProperty() {
@@ -85,34 +83,45 @@ public class TeacherFx {
 	public void setDegree(String degree) {
 		this.degreeProperty().set(degree);
 	}
-	
-
-	public ObjectProperty<Division> divisionProperty() {
-		return this.division;
-	}
-	
-	public Division getDivision() {
-		return this.divisionProperty().get();
-	}
-	
-	public void setDivision(Division division) {
-		this.divisionProperty().set(division);
-	}
 
 
-	public ObjectProperty<PersonalInfo> personalInfoProperty() {
-		return this.personalInfo;
+	public ObjectProperty<PersonalInfoFx> personalInfoFxProperty() {
+		return this.personalInfoFx;
 	}
 	
 
-	public PersonalInfo getPersonalInfo() {
-		return this.personalInfoProperty().get();
+
+	public PersonalInfoFx getPersonalInfoFx() {
+		return this.personalInfoFxProperty().get();
 	}
 	
 
-	public void setPersonalInfo(PersonalInfo personalInfo) {
-		this.personalInfoProperty().set(personalInfo);
-	}
 
+	public void setPersonalInfoFx(PersonalInfoFx personalInfoFx) {
+		this.personalInfoFxProperty().set(personalInfoFx);
+	}
+	
+
+
+	public ObjectProperty<DivisionFx> divisionFxProperty() {
+		return this.divisionFx;
+	}
+	
+
+
+	public DivisionFx getDivisionFx() {
+		return this.divisionFxProperty().get();
+	}
+	
+
+
+	public void setDivisionFx(DivisionFx divisionFx) {
+		this.divisionFxProperty().set(divisionFx);
+	}
+	
+	
+	public String toString() {
+		return (this.degree.get() + " " + this.lastNameTeacher.get() + " " + this.firstNameTeacher.get());
+	}
 	
 }

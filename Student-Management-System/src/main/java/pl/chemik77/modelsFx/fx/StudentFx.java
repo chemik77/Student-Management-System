@@ -6,72 +6,18 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import pl.chemik77.database.models.Division;
-import pl.chemik77.database.models.Faculty;
-import pl.chemik77.database.models.PersonalInfo;
 
 public class StudentFx {
 
 	private IntegerProperty studentID = new SimpleIntegerProperty();
 	private StringProperty document = new SimpleStringProperty();
-	private StringProperty first = new SimpleStringProperty();
-	private StringProperty last = new SimpleStringProperty();
-	private ObjectProperty<PersonalInfo> personalInfo = new SimpleObjectProperty<>();
-	private ObjectProperty<Division> division = new SimpleObjectProperty<>();
-	private ObjectProperty<Faculty> faculty = new SimpleObjectProperty<>();
+	private StringProperty firstName = new SimpleStringProperty();
+	private StringProperty lastName = new SimpleStringProperty();
+	private ObjectProperty<PersonalInfoFx> personalInfoFx = new SimpleObjectProperty<>();
+	private ObjectProperty<DivisionFx> divisionFx = new SimpleObjectProperty<>();
+	private ObjectProperty<FacultyFx> facultyFx = new SimpleObjectProperty<>();
 	
-
-	public String getDocument() {
-		return document.get();
-	}
-	public StringProperty documentProperty() {
-		return document;
-	}
-	public void setDocument(StringProperty document) {
-		this.document = document;
-	}
-	public String getFirst() {
-		return first.get();
-	}
-	public StringProperty firstProperty() {
-		return first;
-	}
-	public void setFirst(String first) {
-		this.first.set(first);;
-	}
-	public String getLast() {
-		return last.get();
-	}
-	public StringProperty lastProperty() {
-		return last;
-	}
-	public void setLast(String last) {
-		this.last.set(last);
-	}
 	
-	public final ObjectProperty<Division> divisionProperty() {
-		return this.division;
-	}
-	
-	public final Division getDivision() {
-		return this.divisionProperty().get();
-	}
-	
-	public final void setDivision(Division division) {
-		this.divisionProperty().set(division);
-	}
-	
-	public final ObjectProperty<Faculty> facultyProperty() {
-		return this.faculty;
-	}
-	
-	public final Faculty getFaculty() {
-		return this.facultyProperty().get();
-	}
-	
-	public final void setFaculty(Faculty faculty) {
-		this.facultyProperty().set(faculty);
-	}
 	public IntegerProperty studentIDProperty() {
 		return this.studentID;
 	}
@@ -84,16 +30,80 @@ public class StudentFx {
 		this.studentIDProperty().set(studentID);
 	}
 	
-	public ObjectProperty<PersonalInfo> personalInfoProperty() {
-		return this.personalInfo;
+	public StringProperty documentProperty() {
+		return this.document;
 	}
 	
-	public PersonalInfo getPersonalInfo() {
-		return this.personalInfoProperty().get();
+	public String getDocument() {
+		return this.documentProperty().get();
 	}
 	
-	public void setPersonalInfo(PersonalInfo personalInfo) {
-		this.personalInfoProperty().set(personalInfo);
+	public void setDocument(String document) {
+		this.documentProperty().set(document);
 	}
+	
+	public StringProperty firstNameProperty() {
+		return this.firstName;
+	}
+	
+	public String getFirstName() {
+		return this.firstNameProperty().get();
+	}
+	
+	public void setFirstName(String first) {
+		this.firstNameProperty().set(first);
+	}
+	
+	public StringProperty lastNameProperty() {
+		return this.lastName;
+	}
+	
+	public String getLastName() {
+		return this.lastNameProperty().get();
+	}
+	
+	public void setLastName(String last) {
+		this.lastNameProperty().set(last);
+	}
+	
+	public ObjectProperty<PersonalInfoFx> personalInfoFxProperty() {
+		return this.personalInfoFx;
+	}
+	
+	public PersonalInfoFx getPersonalInfoFx() {
+		return this.personalInfoFxProperty().get();
+	}
+	
+	public void setPersonalInfoFx(PersonalInfoFx personalInfoFx) {
+		this.personalInfoFxProperty().set(personalInfoFx);
+	}
+	
+	public ObjectProperty<DivisionFx> divisionFxProperty() {
+		return this.divisionFx;
+	}
+	
+	public DivisionFx getDivisionFx() {
+		return this.divisionFxProperty().get();
+	}
+	
+	public void setDivisionFx(DivisionFx divisionFx) {
+		this.divisionFxProperty().set(divisionFx);
+	}
+	
+	public ObjectProperty<FacultyFx> facultyFxProperty() {
+		return this.facultyFx;
+	}
+	
+	public FacultyFx getFacultyFx() {
+		return this.facultyFxProperty().get();
+	}
+	
+	public void setFacultyFx(FacultyFx facultyFx) {
+		this.facultyFxProperty().set(facultyFx);
+	}
+	
+	
+
+
 	
 }

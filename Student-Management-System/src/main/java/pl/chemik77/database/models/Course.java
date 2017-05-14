@@ -18,10 +18,10 @@ public class Course implements BaseModel {
 	@DatabaseField
 	private int ects;
 	
-	@DatabaseField(columnName = "faculty_id", foreign = true)
+	@DatabaseField(columnName = "faculty_id", foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true)
 	private Faculty faculty;
 	
-	@DatabaseField(columnName = "teacher_id", foreign = true)
+	@DatabaseField(columnName = "teacher_id", foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true)
 	private Teacher teacher;
 	
 	@ForeignCollectionField
