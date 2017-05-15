@@ -5,33 +5,52 @@ import javafx.scene.control.TextField;
 import pl.chemik77.modelsFx.fx.DivisionFx;
 import pl.chemik77.modelsFx.fx.FacultyFx;
 import pl.chemik77.modelsFx.fx.StudentFx;
+import pl.chemik77.modelsFx.model.StudentModel;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableView;
 
 public class StudentViewController {
 
 	@FXML 
-	TextField lastTextField;
+	private TextField lastTextField;
 	@FXML 
-	TextField documentTextField;
+	private TextField documentTextField;
 	@FXML 
-	TextField peselTextField;
+	private TextField peselTextField;
 	@FXML 
-	TableColumn<StudentFx, String> lastColumn;
+	private TableView<StudentFx> studentTableView;
 	@FXML 
-	TableColumn<StudentFx, String> firstColumn;
+	private TableColumn<StudentFx, String> lastColumn;
 	@FXML 
-	TableColumn<StudentFx, String> documentColumn;
+	private TableColumn<StudentFx, String> firstColumn;
 	@FXML 
-	TableColumn<FacultyFx, String> facultyColumn;
+	private TableColumn<StudentFx, String> documentColumn;
 	@FXML 
-	TableColumn<DivisionFx, String> divisionColumn;
+	private TableColumn<StudentFx, FacultyFx> facultyColumn;
 	@FXML 
-	Button addButton;
+	private TableColumn<StudentFx, DivisionFx> divisionColumn;
 	@FXML 
-	Button editButton;
+	private Button addButton;
 	@FXML 
-	Button deleteButton;
+	private Button editButton;
+	@FXML 
+	private Button deleteButton;
+	
+	private StudentModel studentModel;
+	
+	public void initialize() {
+		this.studentModel = new StudentModel();
+		
+		this.studentModel.init();
+		
+		this.studentTableView.setItems(this.studentModel.getStudentFxOL());
+		this.lastColumn.setCellValueFactory(cd-> cd.getValue().lastNameProperty());
+		this.firstColumn.setCellValueFactory(cd-> cd.getValue().firstNameProperty());
+		this.documentColumn.setCellValueFactory(cd-> cd.getValue().documentProperty());
+		this.facultyColumn.setCellValueFactory(cd->cd.getValue().facultyFxProperty());
+		this.divisionColumn.setCellValueFactory(cd->cd.getValue().divisionFxProperty());
+	}
 	
 	@FXML 
 	public void addButtonOnAction() {}

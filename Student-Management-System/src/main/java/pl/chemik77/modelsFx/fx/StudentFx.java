@@ -102,7 +102,9 @@ public class StudentFx {
 		this.facultyFxProperty().set(facultyFx);
 	}
 	
-	
+	public String toString() {
+		return (this.lastName.get() + " " + this.firstName.get());
+	}
 
 
 	

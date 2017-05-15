@@ -49,7 +49,7 @@
                   <Separator orientation="VERTICAL" prefHeight="200.0" GridPane.columnIndex="3" GridPane.rowSpan="3" />
                </children>
             </GridPane>
-            <TableView>
+            <TableView fx:id="studentTableView">
               <columns>
                   <TableColumn fx:id="lastColumn" prefWidth="150.0" text="%studentview.last" />
                 <TableColumn fx:id="firstColumn" prefWidth="150.0" text="%studentview.first" />

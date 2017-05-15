@@ -34,5 +34,8 @@ public class DivisionFx {
 		this.nameDivisionProperty().set(nameDivision);
 	}
 	
+	public String toString() {
+		return this.nameDivision.get();
+	}
 	
 }

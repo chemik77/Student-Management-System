@@ -10,7 +10,7 @@ public class PersonalInfoConverter {
 		personalInfoFx.setPersonalInfoID(personalInfo.getId());
 		personalInfoFx.setPesel(personalInfo.getPesel());
 		personalInfoFx.setSex(personalInfo.getSex());
-		personalInfoFx.setBirth(OtherConverter.dateToLocalDate(personalInfo.getBirth()));
+		//personalInfoFx.setBirth(OtherConverter.dateToLocalDate(personalInfo.getBirth()));
 		personalInfoFx.setPhone(personalInfo.getPhone());
 		personalInfoFx.setEmail(personalInfo.getEmail());
 		personalInfoFx.setStreet(personalInfo.getStreet());
@@ -26,7 +26,7 @@ public class PersonalInfoConverter {
 		personalInfo.setId(personalInfoFx.getPersonalInfoID());
 		personalInfo.setPesel(personalInfoFx.getPesel());
 		personalInfo.setSex(personalInfoFx.getSex());
-		personalInfo.setBirth(OtherConverter.localDateToDate(personalInfoFx.getBirth()));
+		//personalInfo.setBirth(OtherConverter.localDateToDate(personalInfoFx.getBirth()));
 		personalInfo.setPhone(personalInfoFx.getPhone());
 		personalInfo.setEmail(personalInfoFx.getEmail());
 		personalInfo.setStreet(personalInfoFx.getStreet());

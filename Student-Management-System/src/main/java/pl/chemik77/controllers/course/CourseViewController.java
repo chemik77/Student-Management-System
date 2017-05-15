@@ -3,34 +3,54 @@ package pl.chemik77.controllers.course;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import pl.chemik77.modelsFx.fx.StudentCourseFx;
+import pl.chemik77.modelsFx.fx.StudentFx;
+import pl.chemik77.modelsFx.model.StudentCourseModel;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableView;
 
 public class CourseViewController {
 
 	@FXML 
-	TextField courseNameTextField;
+	private TextField courseNameTextField;
 	@FXML 
-	TextField courseCodeTextField;
+	private TextField courseCodeTextField;
 	@FXML 
-	Label ectsLabel;
+	private Label ectsLabel;
 	@FXML 
-	Label facultyLabel;
+	private Label facultyLabel;
 	@FXML 
-	Label teacherLabel;
+	private Label teacherLabel;
 	@FXML 
-	TableColumn<StudentCourseFx, String> studentColumn;
+	private TableView<StudentCourseFx> studentTableView;
 	@FXML 
-	TableColumn<StudentCourseFx, String> documentColumn;
+	private TableColumn<StudentCourseFx, StudentFx> studentColumn;
 	@FXML 
-	TableColumn<StudentCourseFx, String> gradeColumn;
+	private TableColumn<StudentCourseFx, String> documentColumn;
 	@FXML 
-	Button addButton;
+	private TableColumn<StudentCourseFx, Number> gradeColumn;
 	@FXML 
-	Button editButton;
+	private Button addButton;
 	@FXML 
-	Button deleteButton;
+	private Button editButton;
+	@FXML 
+	private Button deleteButton;
+	
+	private StudentCourseModel studentCourseModel;
+	
+	
+	public void initialize() {
+		this.studentCourseModel = new StudentCourseModel();
+		
+		this.studentCourseModel.init();
+		
+		this.studentTableView.setItems(this.studentCourseModel.getStudentCourseFxOL());
+		this.studentColumn.setCellValueFactory(cd-> cd.getValue().studentFxProperty());
+		this.documentColumn.setCellValueFactory(cd-> cd.getValue().getStudentFx().documentProperty());
+		this.gradeColumn.setCellValueFactory(cd-> cd.getValue().gradeProperty());
+	}
+	
 	@FXML 
 	public void addButtonOnAction() {}
 	@FXML 

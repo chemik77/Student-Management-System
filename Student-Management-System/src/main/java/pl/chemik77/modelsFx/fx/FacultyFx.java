@@ -54,7 +54,9 @@ public class FacultyFx {
 		this.divisionFxProperty().set(divisionFx);
 	}
 	
-	
+	public String toString() {
+		return this.nameFaculty.get();
+	}
 	
 	
 	

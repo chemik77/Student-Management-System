@@ -113,23 +113,23 @@ public class FillDatabase {
 		scDao.createOrUpdate(sc1);
 		
 		//-------------------------------------
-		Student student2 = new Student();
-		student2.setFirstName("Justyna");
-		student2.setLastName("Adamiak");
-		student2.setDocument("1075261");
-		studentDao.createOrUpdate(student2);
-		
-		Student student3 = new Student();
-		student3.setFirstName("Małgorzata");
-		student3.setLastName("Klim");
-		student3.setDocument("1082695");
-		studentDao.createOrUpdate(student3);
-		
-		Student student4 = new Student();
-		student4.setFirstName("Wojciech");
-		student4.setLastName("Milewski");
-		student4.setDocument("1086591");
-		studentDao.createOrUpdate(student4);
+//		Student student2 = new Student();
+//		student2.setFirstName("Justyna");
+//		student2.setLastName("Adamiak");
+//		student2.setDocument("1075261");
+//		studentDao.createOrUpdate(student2);
+//		
+//		Student student3 = new Student();
+//		student3.setFirstName("Małgorzata");
+//		student3.setLastName("Klim");
+//		student3.setDocument("1082695");
+//		studentDao.createOrUpdate(student3);
+//		
+//		Student student4 = new Student();
+//		student4.setFirstName("Wojciech");
+//		student4.setLastName("Milewski");
+//		student4.setDocument("1086591");
+//		studentDao.createOrUpdate(student4);
 		
 	}
 	
