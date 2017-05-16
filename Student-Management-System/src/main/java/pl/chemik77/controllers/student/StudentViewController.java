@@ -2,11 +2,15 @@ package pl.chemik77.controllers.student;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 import pl.chemik77.modelsFx.fx.DivisionFx;
 import pl.chemik77.modelsFx.fx.FacultyFx;
 import pl.chemik77.modelsFx.fx.StudentFx;
 import pl.chemik77.modelsFx.model.StudentModel;
+import pl.chemik77.utils.FxmlUtils;
 import javafx.scene.control.TableColumn;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
 
@@ -53,7 +57,16 @@ public class StudentViewController {
 	}
 	
 	@FXML 
-	public void addButtonOnAction() {}
+	public void addButtonOnAction() {
+		
+		BorderPane borderPane = null;
+		borderPane = (BorderPane) FxmlUtils.getPane("/fxml/student/StudentAdd.fxml");
+		Scene scene = new Scene(borderPane);
+		Stage stage = new Stage();
+		stage.setScene(scene);
+		stage.show();
+		
+	}
 	@FXML 
 	public void editButtonOnAction() {}
 	@FXML 

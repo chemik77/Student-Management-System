@@ -34,6 +34,8 @@ public class TeacherViewController {
 	private CourseModel courseModel;
 	
 	
+	
+	
 	public void initialize() {
 		courseModel = new CourseModel();
 		courseModel.init();
@@ -42,8 +44,10 @@ public class TeacherViewController {
 		this.teacherNameColumn.setCellValueFactory(cd-> cd.getValue().teacherFxProperty());
 		this.courseNameColumn.setCellValueFactory(cd-> cd.getValue().nameCourseProperty());
 		this.courseCodeColumn.setCellValueFactory(cd-> cd.getValue().codeCourseProperty());
+			 
 	}
 	
+
 	@FXML 
 	public void addButtonOnAction() {}
 	@FXML 
@@ -51,7 +55,10 @@ public class TeacherViewController {
 	@FXML 
 	public void deleteButtonOnAction() {}
 
-	@FXML public void teacherOnMouseClicked() {
+	@FXML 
+	public void teacherOnMouseClicked() {
+		
+		
 	}
 
 }

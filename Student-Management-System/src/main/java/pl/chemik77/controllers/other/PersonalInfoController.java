@@ -6,26 +6,31 @@ import javafx.scene.control.Label;
 public class PersonalInfoController {
 
 	@FXML 
-	Label lastLabel;
+	private Label lastLabel;
 	@FXML 
-	Label firstLabel;
+	private Label firstLabel;
 	@FXML 
-	Label peselLabel;
+	private Label peselLabel;
 	@FXML 
-	Label sexLabel;
+	private Label sexLabel;
 	@FXML 
-	Label birthLabel;
+	private Label birthLabel;
 	@FXML 
-	Label phoneLabel;
+	private Label phoneLabel;
 	@FXML 
-	Label emailLabel;
+	private Label emailLabel;
 	@FXML 
-	Label streetLabel;
+	private Label streetLabel;
 	@FXML 
-	Label houseLabel;
+	private Label houseLabel;
 	@FXML 
-	Label zipLabel;
+	private Label zipLabel;
 	@FXML 
-	Label cityLabel;
+	private Label cityLabel;
+	
+	
+	public void initialize() {
+		
+	}
 
 }

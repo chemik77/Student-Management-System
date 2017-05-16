@@ -1,5 +1,6 @@
 package pl.chemik77.utils;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import pl.chemik77.database.dao.CourseDao;
@@ -16,6 +17,7 @@ import pl.chemik77.database.models.PersonalInfo;
 import pl.chemik77.database.models.Student;
 import pl.chemik77.database.models.StudentCourse;
 import pl.chemik77.database.models.Teacher;
+import pl.chemik77.utils.converters.OtherConverter;
 
 public class FillDatabase {
 	
@@ -33,7 +35,7 @@ public class FillDatabase {
 		
 		PersonalInfo personal1 = new PersonalInfo();
 		personal1.setPesel("86051623114");
-		personal1.setSex(2);
+		personal1.setSex("2");
 		personal1.setBirth(new Date());
 		personal1.setPhone("506 547 799");
 		personal1.setEmail("kowalski535@gmail.com");
@@ -68,7 +70,7 @@ public class FillDatabase {
 		
 		PersonalInfo personal2 = new PersonalInfo();
 		personal2.setPesel("71012510002");
-		personal2.setSex(1);
+		personal2.setSex("1");
 		personal2.setBirth(new Date());
 		personal2.setPhone("712 322 521");
 		personal2.setEmail("walaszekmaria@pwr.edu.pl");

@@ -13,7 +13,7 @@ public class PersonalInfoFx {
 	
 	private IntegerProperty personalInfoID = new SimpleIntegerProperty();
 	private StringProperty pesel = new SimpleStringProperty();
-	private IntegerProperty sex = new SimpleIntegerProperty();
+	private StringProperty sex = new SimpleStringProperty();
 	private ObjectProperty<LocalDate> birth = new SimpleObjectProperty<>();
 	private StringProperty phone = new SimpleStringProperty();
 	private StringProperty email = new SimpleStringProperty();
@@ -48,15 +48,15 @@ public class PersonalInfoFx {
 		this.peselProperty().set(pesel);
 	}
 	
-	public IntegerProperty sexProperty() {
+	public StringProperty sexProperty() {
 		return this.sex;
 	}
 	
-	public int getSex() {
+	public String getSex() {
 		return this.sexProperty().get();
 	}
 	
-	public void setSex(int sex) {
+	public void setSex(String sex) {
 		this.sexProperty().set(sex);
 	}
 	
@@ -156,4 +156,7 @@ public class PersonalInfoFx {
 		this.photoProperty().set(photo);
 	}
 	
+	public String toString() {
+		return (this.pesel.get() + " " + this.email.get());
+	}
 }
