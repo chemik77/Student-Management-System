@@ -1,5 +1,108 @@
 package pl.chemik77.modelsFx.model;
 
-public class TeacherModel {
+import java.util.List;
 
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import pl.chemik77.database.dao.PersonalInfoDao;
+import pl.chemik77.database.dao.TeacherDao;
+import pl.chemik77.database.models.PersonalInfo;
+import pl.chemik77.database.models.Teacher;
+import pl.chemik77.modelsFx.fx.DivisionFx;
+import pl.chemik77.modelsFx.fx.PersonalInfoFx;
+import pl.chemik77.modelsFx.fx.TeacherFx;
+import pl.chemik77.utils.converters.DivisionConverter;
+import pl.chemik77.utils.converters.PersonalInfoConverter;
+import pl.chemik77.utils.converters.TeacherConverter;
+
+public class TeacherModel {
+	
+	private ObservableList<TeacherFx> teacherFxOL = FXCollections.observableArrayList();
+	
+	private ObjectProperty<TeacherFx> teacherFx = new SimpleObjectProperty<>(new TeacherFx());
+	private ObjectProperty<PersonalInfoFx> personalInfoFx = new SimpleObjectProperty<>(new PersonalInfoFx());
+	
+	private ObjectProperty<DivisionFx> divisionFx = new SimpleObjectProperty<>(new DivisionFx());
+	
+	
+	public void init() {
+		TeacherDao dao = new TeacherDao();
+		List<Teacher> teachers = dao.queryForAll(Teacher.class);
+		this.teacherFxOL.clear();
+		teachers.forEach(t-> {
+			this.teacherFxOL.add(TeacherConverter.teacherToTeacherFx(t));
+		});
+	}
+	
+	public void addTeacherToDatabase() {
+		TeacherDao teacherDao = new TeacherDao();
+		PersonalInfoDao personalInfoDao = new PersonalInfoDao();
+		Teacher teacher = new Teacher();
+		PersonalInfo personalInfo = new PersonalInfo();
+		
+		personalInfo = PersonalInfoConverter.personalInfoFxToPersonalInfo(this.personalInfoFx.get());
+		personalInfoDao.createOrUpdate(personalInfo);
+		
+		teacher.setDegree(this.getTeacherFx().getDegree());
+		teacher.setLastNameTeacher(this.getTeacherFx().getLastNameTeacher());
+		teacher.setFirstNameTeacher(this.getTeacherFx().getFirstNameTeacher());
+		teacher.setPersonalInfo(personalInfo);
+		teacher.setDivision(DivisionConverter.divisionFxToDivision(getDivisionFx()));
+		
+		teacherDao.createOrUpdate(teacher);
+		
+		this.init();
+	}
+	
+	
+	
+	public ObjectProperty<TeacherFx> teacherFxProperty() {
+		return this.teacherFx;
+	}
+	
+	public TeacherFx getTeacherFx() {
+		return this.teacherFxProperty().get();
+	}
+	
+	public void setTeacherFx(TeacherFx teacherFx) {
+		this.teacherFxProperty().set(teacherFx);
+	}
+	
+	public ObjectProperty<PersonalInfoFx> personalInfoFxProperty() {
+		return this.personalInfoFx;
+	}
+	
+	public PersonalInfoFx getPersonalInfoFx() {
+		return this.personalInfoFxProperty().get();
+	}
+	
+	public void setPersonalInfoFx(PersonalInfoFx personalInfoFx) {
+		this.personalInfoFxProperty().set(personalInfoFx);
+	}
+	
+	public ObjectProperty<DivisionFx> divisionFxProperty() {
+		return this.divisionFx;
+	}
+	
+	public DivisionFx getDivisionFx() {
+		return this.divisionFxProperty().get();
+	}
+	
+	public void setDivisionFx(DivisionFx divisionFx) {
+		this.divisionFxProperty().set(divisionFx);
+	}
+
+	public ObservableList<TeacherFx> getTeacherFxOL() {
+		return teacherFxOL;
+	}
+
+	public void setTeacherFxOL(ObservableList<TeacherFx> teacherFxOL) {
+		this.teacherFxOL = teacherFxOL;
+	}
+	
+	
+	
+	
 }

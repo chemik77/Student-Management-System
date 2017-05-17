@@ -25,15 +25,23 @@ public class StudentModel {
 	
 	private ObjectProperty<StudentFx> studentFx = new SimpleObjectProperty<>(new StudentFx());
 	private ObjectProperty<PersonalInfoFx> personalInfoFx = new SimpleObjectProperty<>(new PersonalInfoFx());
+	
 	private ObjectProperty<DivisionFx> divisionFx = new SimpleObjectProperty<>(new DivisionFx());
 	private ObjectProperty<FacultyFx> facultyFx = new SimpleObjectProperty<>(new FacultyFx());
+	
 	
 	public void init() {
 		StudentDao studentDao = new StudentDao();
 		List<Student> students = studentDao.queryForAll(Student.class);
+		this.studentFxOL.clear();
 		students.forEach(s-> {
 			this.studentFxOL.add(StudentConverter.studentToStudentFx(s));
 		});
+		
+	}
+	
+	public void initPersonal() {
+		this.setPersonalInfoFx(this.studentFx.get().getPersonalInfoFx());
 	}
 	
 	public void addStudentToDatabase() {
@@ -53,7 +61,10 @@ public class StudentModel {
 		student.setFaculty(FacultyConverter.facultyFxToFaculty(this.facultyFx.get()));
 		
 		studentDao.createOrUpdate(student);
+		
+		this.init();
 	}
+
 
 	
 	public ObservableList<StudentFx> getStudentFxOL() {
@@ -74,7 +85,7 @@ public class StudentModel {
 	}
 	
 
-	public void setStudentFx(final StudentFx studentFx) {
+	public void setStudentFx(StudentFx studentFx) {
 		this.studentFxProperty().set(studentFx);
 	}
 
@@ -88,7 +99,7 @@ public class StudentModel {
 	}
 	
 
-	public void setPersonalInfoFx(final PersonalInfoFx personalInfoFx) {
+	public void setPersonalInfoFx(PersonalInfoFx personalInfoFx) {
 		this.personalInfoFxProperty().set(personalInfoFx);
 	}
 	
@@ -103,7 +114,7 @@ public class StudentModel {
 	}
 	
 
-	public void setDivisionFx(final DivisionFx divisionFx) {
+	public void setDivisionFx(DivisionFx divisionFx) {
 		this.divisionFxProperty().set(divisionFx);
 	}
 	
@@ -118,7 +129,7 @@ public class StudentModel {
 	}
 	
 
-	public void setFacultyFx(final FacultyFx facultyFx) {
+	public void setFacultyFx(FacultyFx facultyFx) {
 		this.facultyFxProperty().set(facultyFx);
 	}
 	

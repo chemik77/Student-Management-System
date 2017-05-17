@@ -38,10 +38,8 @@
               </rowConstraints>
                <children>
                   <Label text="%courseview.name" />
-                  <Label text="%courseview.code" GridPane.rowIndex="1" />
                   <Label text="%courseview.ects" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                  <TextField fx:id="courseNameTextField" GridPane.columnIndex="1" />
-                  <TextField fx:id="courseCodeTextField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <ComboBox fx:id="courseNameComboBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.columnSpan="2" />
                   <Label fx:id="ectsLabel" GridPane.columnIndex="4" GridPane.rowIndex="2" />
                   <Label text="%courseview.faculty" GridPane.columnIndex="3" />
                   <Label fx:id="facultyLabel" GridPane.columnIndex="4" />

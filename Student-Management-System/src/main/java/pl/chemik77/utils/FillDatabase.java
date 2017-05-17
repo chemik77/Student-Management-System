@@ -133,6 +133,15 @@ public class FillDatabase {
 //		student4.setDocument("1086591");
 //		studentDao.createOrUpdate(student4);
 		
+		//--------------------------------------
+		Division division3 = new Division();
+		division3.setNameDivision("Wydział Architektury");
+		divisionDao.createOrUpdate(division3);
+		
+		Division division4 = new Division();
+		division4.setNameDivision("Wydział Budownictwa Lądowego i Wodnego");
+		divisionDao.createOrUpdate(division4);
+		
 	}
 	
 }

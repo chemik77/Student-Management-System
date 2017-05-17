@@ -16,6 +16,7 @@ public class CourseModel {
 	public void init() {
 		CourseDao courseDao = new CourseDao();
 		List<Course> courses = courseDao.queryForAll(Course.class);
+		this.courseFxOL.clear();
 		courses.forEach(course-> {
 			this.courseFxOL.add(CourseConverter.courseToCourseFx(course));
 		});

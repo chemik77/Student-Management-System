@@ -16,6 +16,7 @@ public class DivisionModel {
 	public void init() {
 		DivisionDao dao = new DivisionDao();
 		List<Division> divisions = dao.queryForAll(Division.class);
+		this.divisionFxOL.clear();
 		divisions.forEach(d-> {
 			this.divisionFxOL.add(DivisionConverter.divisionToDivisionFx(d));
 		});

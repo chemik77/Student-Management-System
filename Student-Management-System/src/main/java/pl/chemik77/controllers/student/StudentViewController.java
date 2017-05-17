@@ -3,6 +3,7 @@ package pl.chemik77.controllers.student;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import pl.chemik77.modelsFx.fx.DivisionFx;
 import pl.chemik77.modelsFx.fx.FacultyFx;
@@ -40,8 +41,15 @@ public class StudentViewController {
 	private Button editButton;
 	@FXML 
 	private Button deleteButton;
+	@FXML
+	private Button personalInfoButton;
+	@FXML 
+	private Button coursesButton;
+	
 	
 	private StudentModel studentModel;
+	
+	
 	
 	public void initialize() {
 		this.studentModel = new StudentModel();
@@ -54,6 +62,12 @@ public class StudentViewController {
 		this.documentColumn.setCellValueFactory(cd-> cd.getValue().documentProperty());
 		this.facultyColumn.setCellValueFactory(cd->cd.getValue().facultyFxProperty());
 		this.divisionColumn.setCellValueFactory(cd->cd.getValue().divisionFxProperty());
+		
+		this.studentTableView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+			this.studentModel.setStudentFx(newValue);
+			this.studentModel.initPersonal();
+		});
+		
 	}
 	
 	@FXML 
@@ -72,4 +86,15 @@ public class StudentViewController {
 	@FXML 
 	public void deleteButtonOnAction() {}
 
+	@FXML
+	public void personalInfoButtonOnAction() {
+		StackPane stackPane = null;
+		stackPane = (StackPane) FxmlUtils.getPane("/fxml/other/PersonalInfo.fxml");
+		Scene scene = new Scene(stackPane);
+		Stage stage = new Stage();
+		stage.setScene(scene);
+		stage.show();
+	}
+	@FXML
+	public void coursesButtonOnAction() {}
 }

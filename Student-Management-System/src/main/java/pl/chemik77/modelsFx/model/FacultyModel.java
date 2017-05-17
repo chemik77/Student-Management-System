@@ -16,6 +16,7 @@ public class FacultyModel {
 	public void init() {
 		FacultyDao dao = new FacultyDao();
 		List<Faculty> faculties = dao.queryForAll(Faculty.class);
+		this.facultyFxOL.clear();
 		faculties.forEach(f-> {
 			this.facultyFxOL.add(FacultyConverter.facultyToFacultyFx(f));
 		});

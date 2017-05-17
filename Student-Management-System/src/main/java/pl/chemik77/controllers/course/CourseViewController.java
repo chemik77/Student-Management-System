@@ -1,21 +1,19 @@
 package pl.chemik77.controllers.course;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.TextField;
 import pl.chemik77.modelsFx.fx.StudentCourseFx;
 import pl.chemik77.modelsFx.fx.StudentFx;
 import pl.chemik77.modelsFx.model.StudentCourseModel;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableView;
 
 public class CourseViewController {
 
 	@FXML 
-	private TextField courseNameTextField;
-	@FXML 
-	private TextField courseCodeTextField;
+	private ComboBox<StudentCourseFx> courseNameComboBox;
 	@FXML 
 	private Label ectsLabel;
 	@FXML 
@@ -44,6 +42,8 @@ public class CourseViewController {
 		this.studentCourseModel = new StudentCourseModel();
 		
 		this.studentCourseModel.init();
+		
+		this.courseNameComboBox.setItems(this.studentCourseModel.getStudentCourseFxOL());
 		
 		this.studentTableView.setItems(this.studentCourseModel.getStudentCourseFxOL());
 		this.studentColumn.setCellValueFactory(cd-> cd.getValue().studentFxProperty());

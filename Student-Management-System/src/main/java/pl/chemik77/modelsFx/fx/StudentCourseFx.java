@@ -68,5 +68,9 @@ public class StudentCourseFx {
 		this.courseFxProperty().set(courseFx);
 	}
 	
+	@Override
+	public String toString() {
+		return this.getCourseFx().getNameCourse();
+	}
 	
 }

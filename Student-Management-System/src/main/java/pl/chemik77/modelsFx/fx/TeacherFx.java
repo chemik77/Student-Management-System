@@ -16,6 +16,8 @@ public class TeacherFx {
 	private ObjectProperty<PersonalInfoFx> personalInfoFx = new SimpleObjectProperty<>();
 	private ObjectProperty<DivisionFx> divisionFx = new SimpleObjectProperty<>();
 	
+	private StringProperty fullNameTeacher = new SimpleStringProperty();
+	
 
 	public IntegerProperty teacherIDProperty() {
 		return this.teacherID;
@@ -123,5 +125,12 @@ public class TeacherFx {
 	public String toString() {
 		return (this.degree.get() + " " + this.lastNameTeacher.get() + " " + this.firstNameTeacher.get());
 	}
+
+
+	public StringProperty fullNameTeacherProperty() {
+		this.fullNameTeacher.set(getDegree() + " " + getLastNameTeacher() + " " + getFirstNameTeacher());
+		return this.fullNameTeacher;
+	}
 	
+
 }

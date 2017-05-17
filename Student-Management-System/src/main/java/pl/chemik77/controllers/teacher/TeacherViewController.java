@@ -2,11 +2,18 @@ package pl.chemik77.controllers.teacher;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 import pl.chemik77.modelsFx.fx.CourseFx;
+import pl.chemik77.modelsFx.fx.DivisionFx;
 import pl.chemik77.modelsFx.fx.TeacherFx;
 import pl.chemik77.modelsFx.model.CourseModel;
+import pl.chemik77.modelsFx.model.TeacherModel;
+import pl.chemik77.utils.FxmlUtils;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
 
@@ -17,48 +24,63 @@ public class TeacherViewController {
 	@FXML 
 	private Label divisionLabel;
 	@FXML 
-	private TableView<CourseFx> courseTableView;
+	private TableView<TeacherFx> teacherTableView;
 	@FXML 
-	private TableColumn<CourseFx, TeacherFx> teacherNameColumn;
+	private TableColumn<TeacherFx, String> teacherNameColumn;
 	@FXML 
-	private TableColumn<CourseFx, String> courseNameColumn;
-	@FXML 
-	private TableColumn<CourseFx, String> courseCodeColumn;
+	private TableColumn<TeacherFx, DivisionFx> divisionColumn;
 	@FXML 
 	private Button addButton;
 	@FXML 
 	private Button editButton;
 	@FXML 
 	private Button deleteButton;
+	@FXML
+	private Button personalInfoButton;
+	@FXML 
+	private Button coursesButton;
 	
-	private CourseModel courseModel;
+	private TeacherModel teacherModel;
 	
 	
 	
 	
+	
+	@FXML
 	public void initialize() {
-		courseModel = new CourseModel();
-		courseModel.init();
+		this.teacherModel = new TeacherModel();
+		this.teacherModel.init();
 		
-		this.courseTableView.setItems(this.courseModel.getCourseFxOL());
-		this.teacherNameColumn.setCellValueFactory(cd-> cd.getValue().teacherFxProperty());
-		this.courseNameColumn.setCellValueFactory(cd-> cd.getValue().nameCourseProperty());
-		this.courseCodeColumn.setCellValueFactory(cd-> cd.getValue().codeCourseProperty());
-			 
+		this.teacherTableView.setItems(this.teacherModel.getTeacherFxOL());
+		this.teacherNameColumn.setCellValueFactory(cd-> cd.getValue().fullNameTeacherProperty());
+		this.divisionColumn.setCellValueFactory(cd-> cd.getValue().divisionFxProperty());
 	}
 	
 
 	@FXML 
-	public void addButtonOnAction() {}
+	public void addButtonOnAction() {
+		BorderPane borderPane = null;
+		borderPane = (BorderPane) FxmlUtils.getPane("/fxml/teacher/TeacherAdd.fxml");
+		Scene scene = new Scene(borderPane);
+		Stage stage = new Stage();
+		stage.setScene(scene);
+		stage.show();
+	}
 	@FXML 
 	public void editButtonOnAction() {}
 	@FXML 
 	public void deleteButtonOnAction() {}
 
-	@FXML 
-	public void teacherOnMouseClicked() {
-		
-		
+	@FXML
+	public void personalInfoButtonOnAction() {
+		StackPane stackPane = null;
+		stackPane = (StackPane) FxmlUtils.getPane("/fxml/other/PersonalInfo.fxml");
+		Scene scene = new Scene(stackPane);
+		Stage stage = new Stage();
+		stage.setScene(scene);
+		stage.show();
 	}
+	@FXML
+	public void coursesButtonOnAction() {}
 
 }
