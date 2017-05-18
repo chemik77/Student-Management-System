@@ -1842,3 +1842,7 @@ Caused by: java.lang.IllegalStateException: The file is locked: nio:C:/Java/GIT/
 	at org.h2.mvstore.FileStore.open(FileStore.java:173)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:347)
 	... 35 more
+2017-05-18 19:18:28 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Błąd składniowy w wyrażeniu SQL "COURSEID[*]"; oczekiwano "COMMIT, CREATE, CALL, CHECKPOINT, COMMENT, {"
+Syntax error in SQL statement "COURSEID[*]"; expected "COMMIT, CREATE, CALL, CHECKPOINT, COMMENT, {"; SQL statement:
+COURSEID [42001-194]

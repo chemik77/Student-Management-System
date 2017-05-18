@@ -24,8 +24,8 @@ public class Main extends Application {
 		primaryStage.setScene(scene);
 		primaryStage.show();
 		
-		DbManager.initDatabase();
-		FillDatabase.fillDatabase();
+		//DbManager.initDatabase();
+		//FillDatabase.fillDatabase();
 	}
 
 }

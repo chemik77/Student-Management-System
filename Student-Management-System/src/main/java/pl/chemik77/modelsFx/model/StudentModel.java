@@ -40,9 +40,6 @@ public class StudentModel {
 		
 	}
 	
-	public void initPersonal() {
-		this.setPersonalInfoFx(this.studentFx.get().getPersonalInfoFx());
-	}
 	
 	public void addStudentToDatabase() {
 		StudentDao studentDao = new StudentDao();

@@ -96,7 +96,9 @@ public class CourseFx {
 		this.teacherFxProperty().set(teacherFx);
 	}
 
-
+	public String toString() {
+		return this.getNameCourse();
+	}
 	
 	
 }

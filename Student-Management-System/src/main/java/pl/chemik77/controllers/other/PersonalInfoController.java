@@ -1,8 +1,12 @@
 package pl.chemik77.controllers.other;
 
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import pl.chemik77.modelsFx.fx.StudentFx;
+import pl.chemik77.modelsFx.model.PersonalInfoModel;
 import pl.chemik77.modelsFx.model.StudentModel;
 import pl.chemik77.modelsFx.model.TeacherModel;
 import javafx.scene.control.Button;
@@ -22,11 +26,15 @@ public class PersonalInfoController {
 	@FXML Label cityLabel;
 	@FXML Button closeButton;
 	
-	private StudentModel studentModel;
+	private PersonalInfoModel personalInfoModel;
 	//private TeacherModel teacherModel;
 	
+	
+	@FXML
 	public void initialize() {
-		this.studentModel = new StudentModel();
+		this.personalInfoModel = new PersonalInfoModel();
+		//this.lastNameLabel.textProperty().bind(this.personalInfoModel.getStudentFx().lastNameProperty());
+		
 	}
 
 
@@ -34,5 +42,8 @@ public class PersonalInfoController {
 		Stage stage = (Stage) this.closeButton.getScene().getWindow();
 		stage.close();
 	}
+
+
+	
 	
 }
