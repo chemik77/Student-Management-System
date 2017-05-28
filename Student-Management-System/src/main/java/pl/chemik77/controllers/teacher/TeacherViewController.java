@@ -4,12 +4,14 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import pl.chemik77.modelsFx.fx.CourseFx;
 import pl.chemik77.modelsFx.fx.DivisionFx;
 import pl.chemik77.modelsFx.fx.TeacherFx;
 import pl.chemik77.modelsFx.model.CourseModel;
+import pl.chemik77.modelsFx.model.PersonalInfoModel;
 import pl.chemik77.modelsFx.model.TeacherModel;
 import pl.chemik77.utils.FxmlUtils;
 import javafx.scene.control.Label;
@@ -43,26 +45,27 @@ public class TeacherViewController {
 	
 	private TeacherModel teacherModel;
 
-	
+	private PersonalInfoModel personalInfoModel;
 	
 	@FXML
 	public void initialize() {
 		this.teacherModel = new TeacherModel();
+		this.personalInfoModel = new PersonalInfoModel();
 		this.teacherModel.init();
 		
 		this.teacherTableView.setItems(this.teacherModel.getTeacherFxOL());
 		this.teacherNameColumn.setCellValueFactory(cd-> cd.getValue().fullNameTeacherProperty());
 		this.divisionColumn.setCellValueFactory(cd-> cd.getValue().divisionFxProperty());
 		
-		//nasłuchiwanie zaznaczonego elem w TableView i wysyłanie do model
+		this.personalInfoButton.disableProperty().bind(this.personalInfoModel.personalInfoFxProperty().isNull());
 		this.teacherTableView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+			this.personalInfoModel.setTeacherFx(newValue);
+			this.personalInfoModel.setPersonalFromObject();
 			this.teacherModel.setTeacherFx(newValue);
 			this.changeDivisionLabel();
 		});
 		
-		this.teacherTextField.textProperty().addListener((observable, oldValue, newValue) -> {
-			this.teacherModel.setNameTextField(newValue);
-		});
+
 		
 	}
 	
@@ -83,10 +86,11 @@ public class TeacherViewController {
 
 	@FXML
 	public void personalInfoButtonOnAction() {
-		StackPane stackPane = null;
-		stackPane = (StackPane) FxmlUtils.getPane("/fxml/other/PersonalInfo.fxml");
-		Scene scene = new Scene(stackPane);
+		
 		Stage stage = new Stage();
+		Pane pane = this.personalInfoModel.connectController();
+		Scene scene = new Scene(pane);
+		
 		stage.setScene(scene);
 		stage.show();
 	}

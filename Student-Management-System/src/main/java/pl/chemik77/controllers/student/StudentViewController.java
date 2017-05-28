@@ -58,7 +58,6 @@ public class StudentViewController {
 
 	private PersonalInfoModel personalInfoModel;
 
-	public StudentFx newValue;
 	
 	@FXML
 	public void initialize() {
@@ -75,10 +74,11 @@ public class StudentViewController {
 		this.facultyColumn.setCellValueFactory(cd -> cd.getValue().facultyFxProperty());
 		this.divisionColumn.setCellValueFactory(cd -> cd.getValue().divisionFxProperty());
 		
-		this.personalInfoModel.init();
+		this.personalInfoButton.disableProperty().bind(this.personalInfoModel.personalInfoFxProperty().isNull());
 		this.studentTableView.getSelectionModel().selectedItemProperty()
 				.addListener((observable, oldValue, newValue) -> {
-					this.newValue = newValue;
+					this.personalInfoModel.setStudentFx(newValue);
+					this.personalInfoModel.setPersonalFromObject();
 				});
 		
 		}
@@ -108,11 +108,7 @@ public class StudentViewController {
 	public void personalInfoButtonOnAction() throws IOException {
 
 		Stage stage = new Stage();
-		FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/other/PersonalInfo.fxml"));
-		loader.setResources(ResourceBundle.getBundle("bundles.ApplicationResources"));
-		Pane pane = loader.load();
-		PersonalInfoController personalInfoController = (PersonalInfoController)loader.getController();
-		personalInfoController.getPersonalInfo(this.newValue);
+		Pane pane = this.personalInfoModel.connectController();
 		Scene scene = new Scene(pane);
 		stage.setScene(scene);
 		stage.show();

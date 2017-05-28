@@ -5,8 +5,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
+import pl.chemik77.modelsFx.fx.PersonalInfoFx;
 import pl.chemik77.modelsFx.fx.StudentFx;
-import pl.chemik77.modelsFx.model.PersonalInfoModel;
+import pl.chemik77.modelsFx.fx.TeacherFx;
 
 public class PersonalInfoController {
 	
@@ -23,14 +24,10 @@ public class PersonalInfoController {
 	@FXML Label cityLabel;
 	@FXML Button closeButton;
 	
-	private PersonalInfoModel personalInfoModel;
 	
 	
 	@FXML
 	public void initialize() {
-		this.personalInfoModel = new PersonalInfoModel();
-		
-		//this.emailLabel.textProperty().bind(this.personalInfoModel.getPersonalInfoFx().emailProperty());
 		
 	}
 
@@ -40,7 +37,39 @@ public class PersonalInfoController {
 		stage.close();
 	}
 
-	public void getPersonalInfo(StudentFx studentFx) {
-		this.emailLabel.setText(studentFx.getLastName());
+	public void getPersonalInfoFromStudent(StudentFx studentFx, PersonalInfoFx personalInfoFx) {
+		
+		this.lastNameLabel.setText(studentFx.getLastName());
+		this.firstNameLabel.setText(studentFx.getFirstName());
+		
+		this.peselLabel.setText(personalInfoFx.getPesel());
+		this.sexLabel.setText(personalInfoFx.getSex());
+		this.birthLabel.setText(personalInfoFx.getBirth().toString());
+		this.phoneLabel.setText(personalInfoFx.getPhone());
+		this.emailLabel.setText(personalInfoFx.getEmail());
+		this.streetLabel.setText(personalInfoFx.getStreet());
+		this.zipLabel.setText(personalInfoFx.getZip());
+		this.houseLabel.setText(personalInfoFx.getHouse());
+		this.cityLabel.setText(personalInfoFx.getCity());
+		
+	}
+
+
+	public void getPersonalInfoFromTeacher(TeacherFx teacherFx, PersonalInfoFx personalInfoFx) {
+
+		this.lastNameLabel.setText(teacherFx.getLastNameTeacher());
+		this.firstNameLabel.setText(teacherFx.getFirstNameTeacher());
+		
+		this.peselLabel.setText(personalInfoFx.getPesel());
+		this.sexLabel.setText(personalInfoFx.getSex());
+		this.birthLabel.setText(personalInfoFx.getBirth().toString());
+		this.phoneLabel.setText(personalInfoFx.getPhone());
+		this.emailLabel.setText(personalInfoFx.getEmail());
+		this.streetLabel.setText(personalInfoFx.getStreet());
+		this.zipLabel.setText(personalInfoFx.getZip());
+		this.houseLabel.setText(personalInfoFx.getHouse());
+		this.cityLabel.setText(personalInfoFx.getCity());
+		
+		
 	}
 }
