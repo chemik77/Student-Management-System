@@ -7,17 +7,20 @@ import java.util.stream.Collectors;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+
+import pl.chemik77.database.dao.CourseDao;
 import pl.chemik77.database.dao.PersonalInfoDao;
 import pl.chemik77.database.dao.TeacherDao;
+import pl.chemik77.database.models.Course;
 import pl.chemik77.database.models.PersonalInfo;
 import pl.chemik77.database.models.Teacher;
+import pl.chemik77.modelsFx.fx.CourseFx;
 import pl.chemik77.modelsFx.fx.DivisionFx;
 import pl.chemik77.modelsFx.fx.PersonalInfoFx;
 import pl.chemik77.modelsFx.fx.TeacherFx;
+import pl.chemik77.utils.converters.CourseConverter;
 import pl.chemik77.utils.converters.DivisionConverter;
 import pl.chemik77.utils.converters.PersonalInfoConverter;
 import pl.chemik77.utils.converters.TeacherConverter;
@@ -25,47 +28,52 @@ import pl.chemik77.utils.converters.TeacherConverter;
 public class TeacherModel {
 	
 	private ObservableList<TeacherFx> teacherFxOL = FXCollections.observableArrayList();
-	
 	private List<TeacherFx> teacherFxList = new ArrayList<>();
 	
-	private ObjectProperty<TeacherFx> teacherFx = new SimpleObjectProperty<>(new TeacherFx());
+	private ObjectProperty<TeacherFx> teacherFx = new SimpleObjectProperty<>();
 	private ObjectProperty<PersonalInfoFx> personalInfoFx = new SimpleObjectProperty<>(new PersonalInfoFx());
 	
 	private ObjectProperty<DivisionFx> divisionFx = new SimpleObjectProperty<>(new DivisionFx());
 	
-	private StringProperty nameTextField = new SimpleStringProperty();
+	private List<CourseFx> teacherCoursesFxList = new ArrayList<>();
+	private ObservableList<CourseFx> teacherCoursesFxOL = FXCollections.observableArrayList();
+	
 	
 	
 	public void init() {
-		TeacherDao dao = new TeacherDao();
-		List<Teacher> teachers = dao.queryForAll(Teacher.class);
+		TeacherDao teacherDao = new TeacherDao();
+		List<Teacher> teachers = teacherDao.queryForAll(Teacher.class);
 		this.teacherFxList.clear();
 		teachers.forEach(t-> {
 			this.teacherFxList.add(TeacherConverter.teacherToTeacherFx(t));
 		});
-		this.teacherFxOL.addAll(teacherFxList);
+		this.teacherFxOL.addAll(this.teacherFxList);
 		
+		CourseDao courseDao = new CourseDao();
+		List<Course> courses = courseDao.queryForAll(Course.class);
+		this.teacherCoursesFxList.clear();
+		courses.forEach(c-> {
+			this.teacherCoursesFxList.add(CourseConverter.courseToCourseFx(c));
+		});
+		this.teacherCoursesFxOL.addAll(this.teacherCoursesFxList);
 	}
 	
-	public void filterTeachersList() {
-		if(this.nameTextField.get() != null) {
+	public void filterTeacherCourseList() {
+		if(this.getTeacherFx() != null)
 			this.filterPredicate(this.predicateTeacher());
-			System.out.println("not null");
-		} else {
-			this.teacherFxOL.setAll(this.teacherFxList);
-			System.out.println("null");
-		}
+		else 
+			this.teacherCoursesFxOL.setAll(this.teacherCoursesFxList);
 	}
 	
-
-	private void filterPredicate(Predicate<TeacherFx> predicate) {
-		List<TeacherFx> newList = this.teacherFxList.stream().filter(predicate).collect(Collectors.toList());
-		this.teacherFxOL.setAll(newList);
+	private Predicate<CourseFx> predicateTeacher() {
+		return teacherFx -> teacherFx.getTeacherFx().getTeacherID() == this.getTeacherFx().getTeacherID();
 	}
-
-	private Predicate<TeacherFx> predicateTeacher() {
-		return teacherFx -> teacherFx.getLastNameTeacher().substring(0, 1) == this.nameTextField.get();
+	
+	private void filterPredicate(Predicate<CourseFx> predicate) {
+		List<CourseFx> newList = this.teacherCoursesFxList.stream().filter(predicate).collect(Collectors.toList());
+		this.teacherCoursesFxOL.setAll(newList);
 	}
+	
 
 	public void addTeacherToDatabase() {
 		TeacherDao teacherDao = new TeacherDao();
@@ -134,20 +142,45 @@ public class TeacherModel {
 	}
 
 	
-	public StringProperty nameTextFieldProperty() {
-		return this.nameTextField;
+	public ObservableList<CourseFx> getTeacherCoursesFxOL() {
+		return teacherCoursesFxOL;
 	}
-	
 
 	
-	public String getNameTextField() {
-		return this.nameTextFieldProperty().get();
+	public void setTeacherCoursesFxOL(ObservableList<CourseFx> teacherCoursesFxOL) {
+		this.teacherCoursesFxOL = teacherCoursesFxOL;
 	}
-	
+
+
+
 
 	
-	public void setNameTextField(String nameTextField) {
-		this.nameTextFieldProperty().set(nameTextField);
+	public List<TeacherFx> getTeacherFxList() {
+		return teacherFxList;
+	}
+
+
+
+
+	
+	public void setTeacherFxList(List<TeacherFx> teacherFxList) {
+		this.teacherFxList = teacherFxList;
+	}
+
+
+
+
+	
+	public List<CourseFx> getTeacherCoursesFxList() {
+		return teacherCoursesFxList;
+	}
+
+
+
+
+	
+	public void setTeacherCoursesFxList(List<CourseFx> teacherCoursesFxList) {
+		this.teacherCoursesFxList = teacherCoursesFxList;
 	}
 	
 

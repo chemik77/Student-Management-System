@@ -7,12 +7,17 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.chemik77.controllers.student.StudentCoursesController">
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.chemik77.controllers.teacher.TeacherCoursesController">
    <center>
       <VBox prefHeight="400.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
             <HBox alignment="BASELINE_LEFT" prefHeight="80.0" prefWidth="400.0" spacing="20.0">
                <children>
+                  <Label fx:id="degreeLabel" text="degree">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
                   <Label fx:id="lastNameLabel" alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" text="lastName">
                      <font>
                         <Font size="18.0" />
@@ -47,7 +52,7 @@
    <top>
       <VBox>
          <children>
-            <Label text="Student courses" BorderPane.alignment="CENTER_LEFT">
+            <Label text="Teacher courses" BorderPane.alignment="CENTER_LEFT">
                <font>
                   <Font size="25.0" />
                </font>

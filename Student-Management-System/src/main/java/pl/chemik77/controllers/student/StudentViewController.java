@@ -129,7 +129,7 @@ public class StudentViewController {
 	@FXML
 	public void coursesButtonOnAction() throws IOException {
 		
-		this.studentCourseModel.filterCourseList();
+		this.studentCourseModel.filterStudentCourseList();
 		Stage stage = new Stage();
 		FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/student/StudentCourses.fxml"));
 		loader.setResources(ResourceBundle.getBundle("bundles.ApplicationResources"));

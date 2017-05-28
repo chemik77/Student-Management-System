@@ -35,7 +35,7 @@ public class StudentCourseModel {
 		});
 	}
 	
-	public void filterCourseList() {
+	public void filterStudentCourseList() {
 		if(this.getStudentFx() != null) {
 			this.filterPredicate(this.predicateStudent());
 		} else {

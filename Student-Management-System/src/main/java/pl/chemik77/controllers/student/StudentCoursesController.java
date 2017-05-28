@@ -69,6 +69,7 @@ public class StudentCoursesController {
 	
 	public void getCourses(StudentFx studentFx, ObservableList<StudentCourseFx> studentCourseFxOL) {
 		this.lastNameLabel.setText(studentFx.getLastName());
+		this.firstNameLabel.setText(studentFx.getFirstName());
 		this.courseTableView.setItems(studentCourseFxOL);
 		this.courseNameColumn.setCellValueFactory(cd -> cd.getValue().getCourseFx().nameCourseProperty());
 		this.courseCodeColumn.setCellValueFactory(cd -> cd.getValue().getCourseFx().codeCourseProperty());

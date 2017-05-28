@@ -1,7 +1,11 @@
 package pl.chemik77.controllers.teacher;
 
+import java.io.IOException;
+import java.util.ResourceBundle;
+
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
@@ -58,6 +62,7 @@ public class TeacherViewController {
 		this.divisionColumn.setCellValueFactory(cd-> cd.getValue().divisionFxProperty());
 		
 		this.personalInfoButton.disableProperty().bind(this.personalInfoModel.personalInfoFxProperty().isNull());
+		this.coursesButton.disableProperty().bind(this.teacherModel.teacherFxProperty().isNull());
 		this.teacherTableView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
 			this.personalInfoModel.setTeacherFx(newValue);
 			this.personalInfoModel.setPersonalFromObject();
@@ -95,20 +100,29 @@ public class TeacherViewController {
 		stage.show();
 	}
 	@FXML
-	public void coursesButtonOnAction() {
+	public void coursesButtonOnAction() throws IOException {
 		
+		this.teacherModel.filterTeacherCourseList();
+		Stage stage = new Stage();
+		FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/teacher/TeacherCourses.fxml"));
+		loader.setResources(ResourceBundle.getBundle("bundles.ApplicationResources"));
+		Pane pane = loader.load();
+		TeacherCoursesController teacherCoursesController = (TeacherCoursesController)loader.getController();
+		teacherCoursesController.getCourses(this.teacherModel.getTeacherFx(), this.teacherModel.getTeacherCoursesFxOL());
+		Scene scene = new Scene(pane);
+		stage.setScene(scene);
+		stage.show();
 	}
 	
 	@FXML
 	public void teacherTextFieldKeyTyped() {
-		this.teacherModel.filterTeachersList();
 	}
 	
 	public void changeDivisionLabel() {
 		this.divisionLabel.setText(this.teacherModel.getTeacherFx().getDivisionFx().getNameDivision());
 	}
 
-
+	
 
 	
 }
