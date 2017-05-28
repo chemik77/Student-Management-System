@@ -1,5 +1,6 @@
 package pl.chemik77.controllers.teacher;
 
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
@@ -41,9 +42,7 @@ public class TeacherViewController {
 	private Button coursesButton;
 	
 	private TeacherModel teacherModel;
-	
-	
-	
+
 	
 	
 	@FXML
@@ -54,6 +53,17 @@ public class TeacherViewController {
 		this.teacherTableView.setItems(this.teacherModel.getTeacherFxOL());
 		this.teacherNameColumn.setCellValueFactory(cd-> cd.getValue().fullNameTeacherProperty());
 		this.divisionColumn.setCellValueFactory(cd-> cd.getValue().divisionFxProperty());
+		
+		//nasłuchiwanie zaznaczonego elem w TableView i wysyłanie do model
+		this.teacherTableView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+			this.teacherModel.setTeacherFx(newValue);
+			this.changeDivisionLabel();
+		});
+		
+		this.teacherTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+			this.teacherModel.setNameTextField(newValue);
+		});
+		
 	}
 	
 
@@ -81,6 +91,20 @@ public class TeacherViewController {
 		stage.show();
 	}
 	@FXML
-	public void coursesButtonOnAction() {}
+	public void coursesButtonOnAction() {
+		
+	}
+	
+	@FXML
+	public void teacherTextFieldKeyTyped() {
+		this.teacherModel.filterTeachersList();
+	}
+	
+	public void changeDivisionLabel() {
+		this.divisionLabel.setText(this.teacherModel.getTeacherFx().getDivisionFx().getNameDivision());
+	}
 
+
+
+	
 }

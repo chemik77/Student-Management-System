@@ -7,9 +7,16 @@ import pl.chemik77.modelsFx.fx.StudentFx;
 
 public class PersonalInfoModel {
 	
-	private ObjectProperty<StudentFx> studentFx = new SimpleObjectProperty<>();
-	private ObjectProperty<PersonalInfoFx> personalInfoFx = new SimpleObjectProperty<>();
+	private ObjectProperty<StudentFx> studentFx = new SimpleObjectProperty<>(new StudentFx());
+	private ObjectProperty<PersonalInfoFx> personalInfoFx = new SimpleObjectProperty<>(new PersonalInfoFx());
 	
+	public void init() {
+		
+//		this.personalInfoFx.addListener((observable, oldValue, newValue) -> {
+//			System.out.println("" + newValue.getPhoto());
+//		});
+	}
+
 	
 	public void setPersonalFromStudent() {
 		if(this.getStudentFx() != null)
@@ -39,7 +46,6 @@ public class PersonalInfoModel {
 	public void setPersonalInfoFx(PersonalInfoFx personalInfoFx) {
 		this.personalInfoFxProperty().set(personalInfoFx);
 	}
-
 
 	
 	
