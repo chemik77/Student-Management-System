@@ -20,6 +20,7 @@ import pl.chemik77.modelsFx.fx.DivisionFx;
 import pl.chemik77.modelsFx.fx.FacultyFx;
 import pl.chemik77.modelsFx.fx.StudentFx;
 import pl.chemik77.modelsFx.model.PersonalInfoModel;
+import pl.chemik77.modelsFx.model.StudentCourseModel;
 import pl.chemik77.modelsFx.model.StudentModel;
 import pl.chemik77.utils.FxmlUtils;
 
@@ -57,14 +58,18 @@ public class StudentViewController {
 	private StudentModel studentModel;
 
 	private PersonalInfoModel personalInfoModel;
+	
+	private StudentCourseModel studentCourseModel;
 
 	
 	@FXML
 	public void initialize() {
 		this.studentModel = new StudentModel();
 		this.personalInfoModel = new PersonalInfoModel();
+		this.studentCourseModel = new StudentCourseModel();
 		
 		this.studentModel.init();
+		this.studentCourseModel.init();
 		
 		
 		this.studentTableView.setItems(this.studentModel.getStudentFxOL());
@@ -75,11 +80,17 @@ public class StudentViewController {
 		this.divisionColumn.setCellValueFactory(cd -> cd.getValue().divisionFxProperty());
 		
 		this.personalInfoButton.disableProperty().bind(this.personalInfoModel.personalInfoFxProperty().isNull());
+		this.coursesButton.disableProperty().bind(this.studentCourseModel.studentFxProperty().isNull());
+		
 		this.studentTableView.getSelectionModel().selectedItemProperty()
 				.addListener((observable, oldValue, newValue) -> {
 					this.personalInfoModel.setStudentFx(newValue);
 					this.personalInfoModel.setPersonalFromObject();
+					
+					this.studentCourseModel.setStudentFx(newValue);
 				});
+		
+		
 		
 		}
 
@@ -116,7 +127,21 @@ public class StudentViewController {
 	}
 
 	@FXML
-	public void coursesButtonOnAction() {}
+	public void coursesButtonOnAction() throws IOException {
+		
+		this.studentCourseModel.filterCourseList();
+		Stage stage = new Stage();
+		FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/student/StudentCourses.fxml"));
+		loader.setResources(ResourceBundle.getBundle("bundles.ApplicationResources"));
+		Pane pane = loader.load();
+		StudentCoursesController studentCoursesController = (StudentCoursesController)loader.getController();
+		studentCoursesController.getCourses(this.studentCourseModel.getStudentFx(), this.studentCourseModel.getStudentCourseFxOL());
+		Scene scene = new Scene(pane);
+		stage.setScene(scene);
+		stage.show();
+		
+		
+	}
 
 
 }

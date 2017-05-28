@@ -67,7 +67,7 @@ public class CourseViewController {
 	public void deleteButtonOnAction() {}
 
 	@FXML public void courseComboBoxOnAction() {
-		this.studentCourseModel.filterStudentCourseList();
+		this.studentCourseModel.filterStudentList();
 	}
 
 }
