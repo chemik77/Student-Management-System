@@ -9,7 +9,7 @@
 
 <BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.chemik77.controllers.course.CourseViewController">
    <top>
-      <VBox BorderPane.alignment="CENTER">
+      <VBox minWidth="800.0" BorderPane.alignment="CENTER">
          <children>
             <Label text="%courseview.header">
                <font>
@@ -30,14 +30,14 @@
    <center>
       <VBox spacing="10.0" BorderPane.alignment="CENTER">
          <children>
-            <GridPane alignment="CENTER" hgap="10.0" prefHeight="120.0">
+            <GridPane alignment="BASELINE_LEFT" hgap="5.0" prefHeight="120.0">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" prefWidth="75.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" prefWidth="75.0" />
-                <ColumnConstraints hgrow="SOMETIMES" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="74.0" minWidth="67.0" prefWidth="74.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="136.0" minWidth="131.0" prefWidth="131.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="116.0" minWidth="101.0" prefWidth="101.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="45.0" minWidth="0.0" prefWidth="20.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="101.0" minWidth="34.0" prefWidth="51.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="257.0" minWidth="105.0" prefWidth="240.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -48,11 +48,20 @@
                   <Label text="%courseview.name" />
                   <Label text="%courseview.ects" GridPane.columnIndex="4" GridPane.rowIndex="2" />
                   <ComboBox fx:id="courseNameComboBox" onAction="#courseComboBoxOnAction" prefWidth="250.0" GridPane.columnIndex="1" GridPane.columnSpan="2" />
-                  <Label fx:id="ectsLabel" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                  <Label fx:id="ectsLabel" GridPane.columnIndex="5" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="16.0" />
+                     </font></Label>
                   <Label text="%courseview.faculty" GridPane.columnIndex="4" />
-                  <Label fx:id="facultyLabel" GridPane.columnIndex="5" />
+                  <Label fx:id="facultyLabel" GridPane.columnIndex="5">
+                     <font>
+                        <Font size="16.0" />
+                     </font></Label>
                   <Label text="%courseview.teacher" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-                  <Label fx:id="teacherLabel" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                  <Label fx:id="teacherLabel" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="16.0" />
+                     </font></Label>
                </children>
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

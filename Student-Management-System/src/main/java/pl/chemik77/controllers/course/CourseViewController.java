@@ -68,6 +68,12 @@ public class CourseViewController {
 
 	@FXML public void courseComboBoxOnAction() {
 		this.studentCourseModel.filterStudentList();
+		this.setAdditionalInfo();
 	}
 
+	private void setAdditionalInfo() {
+		this.facultyLabel.setText(this.studentCourseModel.getCourseFx().getFacultyFx().getNameFaculty());
+		this.teacherLabel.setText(this.studentCourseModel.getCourseFx().getTeacherFx().toString());
+		this.ectsLabel.setText(Integer.toString(this.studentCourseModel.getCourseFx().ectsProperty().get()));
+	}
 }
