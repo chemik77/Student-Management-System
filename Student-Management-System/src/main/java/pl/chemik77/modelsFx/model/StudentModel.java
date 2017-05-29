@@ -6,6 +6,8 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+
 import pl.chemik77.database.dao.PersonalInfoDao;
 import pl.chemik77.database.dao.StudentDao;
 import pl.chemik77.database.models.PersonalInfo;
@@ -22,6 +24,7 @@ import pl.chemik77.utils.converters.StudentConverter;
 public class StudentModel {
 	
 	private ObservableList<StudentFx> studentFxOL = FXCollections.observableArrayList();
+	private FilteredList<StudentFx> filteredList;
 	
 	private ObjectProperty<StudentFx> studentFx = new SimpleObjectProperty<>(new StudentFx());
 	private ObjectProperty<PersonalInfoFx> personalInfoFx = new SimpleObjectProperty<>(new PersonalInfoFx());
@@ -31,6 +34,8 @@ public class StudentModel {
 	
 	
 	public void init() {
+		
+		//fill ObsList with students
 		StudentDao studentDao = new StudentDao();
 		List<Student> students = studentDao.queryForAll(Student.class);
 		this.studentFxOL.clear();
@@ -38,6 +43,50 @@ public class StudentModel {
 			this.studentFxOL.add(StudentConverter.studentToStudentFx(s));
 		});
 		
+		//fill FList with students
+		this.filteredList = new FilteredList<>(this.studentFxOL, p -> true);
+		
+	}
+	
+	public void filterByName(String newValue) {
+		this.filteredList.setPredicate(studentFx -> {
+			if(newValue == null || newValue.isEmpty())
+				return true;
+			
+			String lowerCaseFilter = newValue.toLowerCase();
+			
+			if(studentFx.getLastName().toLowerCase().contains(lowerCaseFilter))
+				return true;
+			return false;
+		});
+		
+		System.out.println(this.filteredList.toString());
+	}
+	
+	public void filterByDoc(String newValue) {
+		this.filteredList.setPredicate(studentFx -> {
+			if(newValue == null || newValue.isEmpty())
+				return true;
+			
+			String lowerCaseFilter = newValue.toLowerCase();
+			
+			if(studentFx.getDocument().toLowerCase().contains(lowerCaseFilter))
+				return true;
+			return false;
+		});
+	}
+	
+	public void filterByPesel(String newValue) {
+		this.filteredList.setPredicate(studentFx -> {
+			if(newValue == null || newValue.isEmpty())
+				return true;
+			
+			String lowerCaseFilter = newValue.toLowerCase();
+			
+			if(studentFx.getPersonalInfoFx().getPesel().toLowerCase().contains(lowerCaseFilter))
+				return true;
+			return false;
+		});
 	}
 	
 	
@@ -128,6 +177,18 @@ public class StudentModel {
 
 	public void setFacultyFx(FacultyFx facultyFx) {
 		this.facultyFxProperty().set(facultyFx);
+	}
+
+
+	
+	public FilteredList<StudentFx> getFilteredList() {
+		return filteredList;
+	}
+
+
+	
+	public void setFilteredList(FilteredList<StudentFx> filteredList) {
+		this.filteredList = filteredList;
 	}
 	
 	

@@ -10,7 +10,6 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
-import javafx.collections.transformation.SortedList;
 
 import pl.chemik77.database.dao.CourseDao;
 import pl.chemik77.database.dao.PersonalInfoDao;
@@ -43,6 +42,8 @@ public class TeacherModel {
 	
 	
 	public void init() {
+		
+		//fill ObsList with teachers
 		TeacherDao teacherDao = new TeacherDao();
 		List<Teacher> teachers = teacherDao.queryForAll(Teacher.class);
 		this.teacherCoursesFxOL.clear();
@@ -50,6 +51,7 @@ public class TeacherModel {
 			this.teacherFxOL.add(TeacherConverter.teacherToTeacherFx(t));
 		});
 		
+		//fill List & ObsList with courses
 		CourseDao courseDao = new CourseDao();
 		List<Course> courses = courseDao.queryForAll(Course.class);
 		this.teacherCoursesFxList.clear();
@@ -58,6 +60,7 @@ public class TeacherModel {
 		});
 		this.teacherCoursesFxOL.addAll(this.teacherCoursesFxList);
 		
+		//fill FList with teachers
 		this.filteredList = new FilteredList<>(this.teacherFxOL, p -> true);
 	}
 	

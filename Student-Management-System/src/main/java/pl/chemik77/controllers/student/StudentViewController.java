@@ -3,6 +3,7 @@ package pl.chemik77.controllers.student;
 import java.io.IOException;
 import java.util.ResourceBundle;
 
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -12,10 +13,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-import pl.chemik77.controllers.other.PersonalInfoController;
 import pl.chemik77.modelsFx.fx.DivisionFx;
 import pl.chemik77.modelsFx.fx.FacultyFx;
 import pl.chemik77.modelsFx.fx.StudentFx;
@@ -61,27 +60,45 @@ public class StudentViewController {
 	
 	private StudentCourseModel studentCourseModel;
 
+	private SortedList<StudentFx> sortedList;
 	
 	@FXML
 	public void initialize() {
 		this.studentModel = new StudentModel();
 		this.personalInfoModel = new PersonalInfoModel();
 		this.studentCourseModel = new StudentCourseModel();
-		
 		this.studentModel.init();
 		this.studentCourseModel.init();
 		
 		
-		this.studentTableView.setItems(this.studentModel.getStudentFxOL());
+		//initialize columns
 		this.lastColumn.setCellValueFactory(cd -> cd.getValue().lastNameProperty());
 		this.firstColumn.setCellValueFactory(cd -> cd.getValue().firstNameProperty());
 		this.documentColumn.setCellValueFactory(cd -> cd.getValue().documentProperty());
 		this.facultyColumn.setCellValueFactory(cd -> cd.getValue().facultyFxProperty());
 		this.divisionColumn.setCellValueFactory(cd -> cd.getValue().divisionFxProperty());
 		
+		//filter data with textFields
+		this.sortedList = new SortedList<>(this.studentModel.getFilteredList());
+		//filter data by name
+		this.lastTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+			this.studentModel.filterByName(newValue);
+		});
+		//filter data by doc
+		this.documentTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+			this.studentModel.filterByDoc(newValue);
+		});
+		//filter data by pesel
+		this.peselTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+			this.studentModel.filterByPesel(newValue);
+		});
+		this.sortedList.comparatorProperty().bind(this.studentTableView.comparatorProperty());
+		this.studentTableView.setItems(this.sortedList);
+		
+		//disable buttons when object in model is null
 		this.personalInfoButton.disableProperty().bind(this.personalInfoModel.personalInfoFxProperty().isNull());
 		this.coursesButton.disableProperty().bind(this.studentCourseModel.studentFxProperty().isNull());
-		
+		//select student from table to more info
 		this.studentTableView.getSelectionModel().selectedItemProperty()
 				.addListener((observable, oldValue, newValue) -> {
 					this.personalInfoModel.setStudentFx(newValue);

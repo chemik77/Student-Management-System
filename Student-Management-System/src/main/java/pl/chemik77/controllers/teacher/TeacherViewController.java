@@ -3,19 +3,16 @@ package pl.chemik77.controllers.teacher;
 import java.io.IOException;
 import java.util.ResourceBundle;
 
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import pl.chemik77.modelsFx.fx.CourseFx;
+
 import pl.chemik77.modelsFx.fx.DivisionFx;
 import pl.chemik77.modelsFx.fx.TeacherFx;
-import pl.chemik77.modelsFx.model.CourseModel;
 import pl.chemik77.modelsFx.model.PersonalInfoModel;
 import pl.chemik77.modelsFx.model.TeacherModel;
 import pl.chemik77.utils.FxmlUtils;
@@ -59,9 +56,11 @@ public class TeacherViewController {
 		this.teacherModel = new TeacherModel();
 		this.personalInfoModel = new PersonalInfoModel();
 		this.teacherModel.init();
+		
 		//initialize columns
 		this.teacherNameColumn.setCellValueFactory(cd-> cd.getValue().fullNameTeacherProperty());
 		this.divisionColumn.setCellValueFactory(cd-> cd.getValue().divisionFxProperty());
+		
 		//filter data with textField
 		this.sortedList = new SortedList<>(this.teacherModel.getFilteredList());
 		this.teacherTextField.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -69,10 +68,11 @@ public class TeacherViewController {
 		});
 		this.sortedList.comparatorProperty().bind(this.teacherTableView.comparatorProperty());
 		this.teacherTableView.setItems(this.sortedList);
+		
 		//disable buttons when object in model is null
 		this.personalInfoButton.disableProperty().bind(this.personalInfoModel.personalInfoFxProperty().isNull());
 		this.coursesButton.disableProperty().bind(this.teacherModel.teacherFxProperty().isNull());
-		//select object from table to more info
+		//select teacher from table to more info
 		this.teacherTableView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
 			this.personalInfoModel.setTeacherFx(newValue);
 			this.personalInfoModel.setPersonalFromObject();
