@@ -9,6 +9,8 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 
 import pl.chemik77.database.dao.CourseDao;
 import pl.chemik77.database.dao.PersonalInfoDao;
@@ -28,7 +30,7 @@ import pl.chemik77.utils.converters.TeacherConverter;
 public class TeacherModel {
 	
 	private ObservableList<TeacherFx> teacherFxOL = FXCollections.observableArrayList();
-	private List<TeacherFx> teacherFxList = new ArrayList<>();
+	private FilteredList<TeacherFx> filteredList;
 	
 	private ObjectProperty<TeacherFx> teacherFx = new SimpleObjectProperty<>();
 	private ObjectProperty<PersonalInfoFx> personalInfoFx = new SimpleObjectProperty<>(new PersonalInfoFx());
@@ -43,11 +45,10 @@ public class TeacherModel {
 	public void init() {
 		TeacherDao teacherDao = new TeacherDao();
 		List<Teacher> teachers = teacherDao.queryForAll(Teacher.class);
-		this.teacherFxList.clear();
+		this.teacherCoursesFxOL.clear();
 		teachers.forEach(t-> {
-			this.teacherFxList.add(TeacherConverter.teacherToTeacherFx(t));
+			this.teacherFxOL.add(TeacherConverter.teacherToTeacherFx(t));
 		});
-		this.teacherFxOL.addAll(this.teacherFxList);
 		
 		CourseDao courseDao = new CourseDao();
 		List<Course> courses = courseDao.queryForAll(Course.class);
@@ -56,6 +57,22 @@ public class TeacherModel {
 			this.teacherCoursesFxList.add(CourseConverter.courseToCourseFx(c));
 		});
 		this.teacherCoursesFxOL.addAll(this.teacherCoursesFxList);
+		
+		this.filteredList = new FilteredList<>(this.teacherFxOL, p -> true);
+	}
+	
+	public void filterTeacherWithTextField(String newValue) {
+		
+		this.filteredList.setPredicate(teacherFx -> {
+			if(newValue == null || newValue.isEmpty())
+				return true;
+			String lowerCaseFilter = newValue.toLowerCase();
+			if(teacherFx.getLastNameTeacher().toLowerCase().contains(lowerCaseFilter))
+				return true;
+			else if (teacherFx.getFirstNameTeacher().toLowerCase().contains(lowerCaseFilter))
+				return true;
+			return false;
+		});
 	}
 	
 	public void filterTeacherCourseList() {
@@ -152,24 +169,6 @@ public class TeacherModel {
 	}
 
 
-
-
-	
-	public List<TeacherFx> getTeacherFxList() {
-		return teacherFxList;
-	}
-
-
-
-
-	
-	public void setTeacherFxList(List<TeacherFx> teacherFxList) {
-		this.teacherFxList = teacherFxList;
-	}
-
-
-
-
 	
 	public List<CourseFx> getTeacherCoursesFxList() {
 		return teacherCoursesFxList;
@@ -182,7 +181,17 @@ public class TeacherModel {
 	public void setTeacherCoursesFxList(List<CourseFx> teacherCoursesFxList) {
 		this.teacherCoursesFxList = teacherCoursesFxList;
 	}
-	
 
+	
+	public FilteredList<TeacherFx> getFilteredList() {
+		return filteredList;
+	}
+
+	
+	public void setFilteredList(FilteredList<TeacherFx> filteredList) {
+		this.filteredList = filteredList;
+	}
+
+	
 	
 }
