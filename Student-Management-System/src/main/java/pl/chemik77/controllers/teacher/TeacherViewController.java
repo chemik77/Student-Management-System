@@ -69,18 +69,21 @@ public class TeacherViewController {
 		this.sortedList.comparatorProperty().bind(this.teacherTableView.comparatorProperty());
 		this.teacherTableView.setItems(this.sortedList);
 		
+		
+		
 		//disable buttons when object in model is null
 		this.personalInfoButton.disableProperty().bind(this.personalInfoModel.personalInfoFxProperty().isNull());
-		this.coursesButton.disableProperty().bind(this.teacherModel.teacherFxProperty().isNull());
+		this.coursesButton.disableProperty().bind(this.teacherTableView.getSelectionModel().selectedItemProperty().isNull());
+		this.editButton.disableProperty().bind(this.teacherTableView.getSelectionModel().selectedItemProperty().isNull());
+		this.deleteButton.disableProperty().bind(this.teacherTableView.getSelectionModel().selectedItemProperty().isNull());
+		
 		//select teacher from table to more info
 		this.teacherTableView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
 			this.personalInfoModel.setTeacherFx(newValue);
 			this.personalInfoModel.setPersonalFromObject();
 			this.teacherModel.setTeacherFx(newValue);
-			this.changeDivisionLabel();
+			this.divisionLabel.setText(this.teacherModel.getTeacherFx().getDivisionFx().getNameDivision());
 		});
-		
-
 		
 	}
 	
@@ -109,6 +112,7 @@ public class TeacherViewController {
 		stage.setScene(scene);
 		stage.show();
 	}
+	
 	@FXML
 	public void coursesButtonOnAction() throws IOException {
 		
@@ -124,15 +128,6 @@ public class TeacherViewController {
 		stage.show();
 	}
 	
-	@FXML
-	public void teacherTextFieldKeyTyped() {
-	}
 	
-	public void changeDivisionLabel() {
-		this.divisionLabel.setText(this.teacherModel.getTeacherFx().getDivisionFx().getNameDivision());
-	}
-
-	
-
 	
 }

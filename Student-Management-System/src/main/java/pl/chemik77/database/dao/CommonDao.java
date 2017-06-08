@@ -31,9 +31,10 @@ public class CommonDao {
 	}
 	
 	//createOrUpdate
+	@SuppressWarnings("unchecked")
 	public <T extends BaseModel, I> void createOrUpdate(BaseModel baseModel) {
 		try {
-			Dao<T ,I> dao = (Dao<T, I>) DaoManager.createDao(this.connectionSource, baseModel.getClass());
+			Dao<T ,I> dao = (Dao<T, I>) getDao(baseModel.getClass());
 			dao.createOrUpdate((T)baseModel);
 		} catch (SQLException e) {
 			LOGGER.warn(e.getMessage());

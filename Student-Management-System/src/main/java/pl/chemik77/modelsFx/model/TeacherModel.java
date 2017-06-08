@@ -43,6 +43,8 @@ public class TeacherModel {
 	
 	public void init() {
 		
+		this.teacherFx.set(new TeacherFx());
+		
 		//fill ObsList with teachers
 		TeacherDao teacherDao = new TeacherDao();
 		List<Teacher> teachers = teacherDao.queryForAll(Teacher.class);

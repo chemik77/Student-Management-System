@@ -44,6 +44,7 @@ public class TeacherCoursesController {
 	@FXML
 	private void initialize() {
 		this.teacherModel = new TeacherModel();
+		this.teacherModel.init();
 	}
 	
 	@FXML

@@ -46,7 +46,7 @@
               </rowConstraints>
                <children>
                   <Label text="%teacherview.name" />
-                  <TextField fx:id="teacherTextField" onKeyTyped="#teacherTextFieldKeyTyped" GridPane.columnIndex="1" />
+                  <TextField fx:id="teacherTextField" GridPane.columnIndex="1" />
                   <Label text="%teacherview.division" GridPane.rowIndex="1" />
                   <Label fx:id="divisionLabel" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" GridPane.columnIndex="3" GridPane.rowSpan="3">

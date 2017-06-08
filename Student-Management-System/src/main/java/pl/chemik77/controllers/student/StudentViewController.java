@@ -11,7 +11,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -21,7 +20,6 @@ import pl.chemik77.modelsFx.fx.StudentFx;
 import pl.chemik77.modelsFx.model.PersonalInfoModel;
 import pl.chemik77.modelsFx.model.StudentCourseModel;
 import pl.chemik77.modelsFx.model.StudentModel;
-import pl.chemik77.utils.FxmlUtils;
 
 public class StudentViewController {
 
@@ -33,6 +31,8 @@ public class StudentViewController {
 	private TextField peselTextField;
 	@FXML
 	private TableView<StudentFx> studentTableView;
+	@FXML
+	private TableColumn<StudentFx, String> peselColumn;
 	@FXML
 	private TableColumn<StudentFx, String> lastColumn;
 	@FXML
@@ -72,6 +72,7 @@ public class StudentViewController {
 		
 		
 		//initialize columns
+		this.peselColumn.setCellValueFactory(cd -> cd.getValue().getPersonalInfoFx().peselProperty());
 		this.lastColumn.setCellValueFactory(cd -> cd.getValue().lastNameProperty());
 		this.firstColumn.setCellValueFactory(cd -> cd.getValue().firstNameProperty());
 		this.documentColumn.setCellValueFactory(cd -> cd.getValue().documentProperty());
@@ -98,26 +99,30 @@ public class StudentViewController {
 		//disable buttons when object in model is null
 		this.personalInfoButton.disableProperty().bind(this.personalInfoModel.personalInfoFxProperty().isNull());
 		this.coursesButton.disableProperty().bind(this.studentCourseModel.studentFxProperty().isNull());
+		this.editButton.disableProperty().bind(this.studentTableView.getSelectionModel().selectedItemProperty().isNull());
+		this.deleteButton.disableProperty().bind(this.studentTableView.getSelectionModel().selectedItemProperty().isNull());
+		
 		//select student from table to more info
 		this.studentTableView.getSelectionModel().selectedItemProperty()
 				.addListener((observable, oldValue, newValue) -> {
 					this.personalInfoModel.setStudentFx(newValue);
 					this.personalInfoModel.setPersonalFromObject();
 					
+					this.studentModel.setStudentFx(newValue);
+					
 					this.studentCourseModel.setStudentFx(newValue);
 				});
-		
-		
 		
 		}
 
 	@FXML
-	public void addButtonOnAction() {
-
-		BorderPane borderPane = null;
-		borderPane = (BorderPane) FxmlUtils.getPane("/fxml/student/StudentAdd.fxml");
+	public void addButtonOnAction() throws IOException {
 		
-		Scene scene = new Scene(borderPane);
+		FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/student/StudentAdd.fxml"));
+		loader.setResources(ResourceBundle.getBundle("bundles.ApplicationResources"));
+		Scene scene = new Scene(loader.load());
+		StudentAddController studentAddController = loader.getController();
+		studentAddController.bindings();
 		Stage stage = new Stage();
 		stage.setScene(scene);
 		stage.show();
@@ -125,8 +130,17 @@ public class StudentViewController {
 	}
 
 	@FXML
-	public void editButtonOnAction() {
-	}
+	public void editButtonOnAction() throws IOException {
+		FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/student/StudentAdd.fxml"));
+		loader.setResources(ResourceBundle.getBundle("bundles.ApplicationResources"));
+		Scene scene = new Scene(loader.load());
+		StudentAddController studentAddController = loader.getController();
+		
+		Stage stage = new Stage();
+		stage.setScene(scene);
+		stage.show();
+		studentAddController.bindings();
+	} 
 
 	@FXML
 	public void deleteButtonOnAction() {

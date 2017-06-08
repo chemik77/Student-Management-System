@@ -68,6 +68,7 @@
               <columns>
                   <TableColumn fx:id="lastColumn" prefWidth="150.0" text="%studentview.last" />
                 <TableColumn fx:id="firstColumn" prefWidth="150.0" text="%studentview.first" />
+                  <TableColumn fx:id="peselColumn" prefWidth="150.0" text="Pesel" />
                 <TableColumn fx:id="documentColumn" prefWidth="100.0" text="%studentview.document" />
                   <TableColumn fx:id="facultyColumn" prefWidth="150.0" text="%studentview.faculty" />
                   <TableColumn fx:id="divisionColumn" prefWidth="150.0" text="%studentview.division" />

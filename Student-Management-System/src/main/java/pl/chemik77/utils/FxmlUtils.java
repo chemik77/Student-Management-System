@@ -10,8 +10,6 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-import pl.chemik77.modelsFx.fx.StudentFx;
-import pl.chemik77.modelsFx.model.PersonalInfoModel;
 
 public class FxmlUtils {
 	

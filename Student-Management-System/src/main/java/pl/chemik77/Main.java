@@ -4,8 +4,6 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import pl.chemik77.database.dbUtils.DbManager;
-import pl.chemik77.utils.FillDatabase;
 import pl.chemik77.utils.FxmlUtils;
 
 public class Main extends Application {

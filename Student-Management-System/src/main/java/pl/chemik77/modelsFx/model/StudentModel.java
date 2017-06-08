@@ -26,14 +26,17 @@ public class StudentModel {
 	private ObservableList<StudentFx> studentFxOL = FXCollections.observableArrayList();
 	private FilteredList<StudentFx> filteredList;
 	
-	private ObjectProperty<StudentFx> studentFx = new SimpleObjectProperty<>(new StudentFx());
-	private ObjectProperty<PersonalInfoFx> personalInfoFx = new SimpleObjectProperty<>(new PersonalInfoFx());
+	private ObjectProperty<StudentFx> studentFx = new SimpleObjectProperty<>();
+	private ObjectProperty<PersonalInfoFx> personalInfoFx = new SimpleObjectProperty<>();
 	
 	private ObjectProperty<DivisionFx> divisionFx = new SimpleObjectProperty<>(new DivisionFx());
 	private ObjectProperty<FacultyFx> facultyFx = new SimpleObjectProperty<>(new FacultyFx());
 	
 	
 	public void init() {
+		
+		this.studentFx.set(new StudentFx());
+		this.personalInfoFx.set(new PersonalInfoFx());
 		
 		//fill ObsList with students
 		StudentDao studentDao = new StudentDao();
@@ -60,7 +63,6 @@ public class StudentModel {
 			return false;
 		});
 		
-		System.out.println(this.filteredList.toString());
 	}
 	
 	public void filterByDoc(String newValue) {

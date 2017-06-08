@@ -11,7 +11,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 
-import pl.chemik77.modelsFx.fx.CourseFx;
 import pl.chemik77.modelsFx.fx.StudentCourseFx;
 import pl.chemik77.modelsFx.fx.StudentFx;
 import pl.chemik77.modelsFx.model.StudentCourseModel;
@@ -43,7 +42,7 @@ public class StudentCoursesController {
 	@FXML
 	private void initialize() {
 		this.studentCourseModel = new StudentCourseModel();
-		
+		this.studentCourseModel.init();
 	}
 	
 	@FXML

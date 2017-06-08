@@ -2,6 +2,7 @@ package pl.chemik77.controllers.teacher;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Toggle;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import pl.chemik77.modelsFx.fx.DivisionFx;
@@ -53,8 +54,6 @@ public class TeacherAddController {
 	private DatePicker birthDatePicker;
 	@FXML 
 	private ComboBox<DivisionFx> divisionComboBox;
-	@FXML 
-	private TextField sexTextField;
 	
 	private DivisionModel divisionModel;
 	
@@ -64,9 +63,13 @@ public class TeacherAddController {
 	private void initialize() {
 		this.divisionModel = new DivisionModel();
 		this.teacherModel = new TeacherModel();
+		this.teacherModel.init();
 		this.divisionModel.init();
+		
+		//fill ComboBox with objects
 		this.divisionComboBox.setItems(this.divisionModel.getDivisionFxOL());
 		
+		//bind textFields with object in model
 		this.teacherModel.teacherFxProperty().get().lastNameTeacherProperty().bind(this.lastNameTextField.textProperty());
 		this.teacherModel.teacherFxProperty().get().firstNameTeacherProperty().bind(this.firstNameTextField.textProperty());
 		this.teacherModel.teacherFxProperty().get().degreeProperty().bind(this.degreeTextField.textProperty());
@@ -79,9 +82,12 @@ public class TeacherAddController {
 		this.teacherModel.personalInfoFxProperty().get().cityProperty().bind(this.cityTextField.textProperty());
 		this.teacherModel.personalInfoFxProperty().get().houseProperty().bind(this.houseTextField.textProperty());
 		this.teacherModel.personalInfoFxProperty().get().photoProperty().bind(this.photoTextField.textProperty());
-		this.teacherModel.personalInfoFxProperty().get().sexProperty().bind(this.sexTextField.textProperty());
 		this.teacherModel.personalInfoFxProperty().get().birthProperty().bind(this.birthDatePicker.valueProperty());
-
+		this.sexToggleGroup.selectedToggleProperty().addListener((observable, oldValue, newValue) -> {
+			setSex(newValue);
+		});
+		
+		//bind ComboBox with object in model
 		this.teacherModel.divisionFxProperty().bind(this.divisionComboBox.valueProperty());	
 	}
 	
@@ -98,6 +104,13 @@ public class TeacherAddController {
 	public void cancelButtonOnAction() {
 		Stage stage = (Stage) this.cancelButton.getScene().getWindow();
 		stage.close();
+	}
+	
+	private void setSex(Toggle newValue) {
+		if(newValue.equals(femaleRadioButton))
+			this.teacherModel.personalInfoFxProperty().get().sexProperty().set("F");
+		else if(newValue.equals(maleRadioButton))
+			this.teacherModel.personalInfoFxProperty().get().sexProperty().set("M");
 	}
 	
 }

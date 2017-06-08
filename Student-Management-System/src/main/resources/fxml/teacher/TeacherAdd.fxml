@@ -51,16 +51,16 @@
             <Label text="%teacher.street" GridPane.rowIndex="10" />
             <Label text="%teacher.zip" GridPane.rowIndex="11" />
             <Label text="%teacher.city" GridPane.columnIndex="3" GridPane.rowIndex="11" />
-            <TextField text="Nazwisko" fx:id="lastNameTextField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField text="Imię" fx:id="firstNameTextField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <TextField text="Prof." fx:id="degreeTextField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <TextField text="86120110023" fx:id="peselTextField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <TextField text="785 254 569" fx:id="telephoneTextField" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-            <TextField text="nazwisko33@gmail.com" fx:id="emailTextField" GridPane.columnIndex="4" GridPane.rowIndex="9" />
-            <TextField text="ulica" fx:id="streetTextField" GridPane.columnIndex="1" GridPane.rowIndex="10" />
-            <TextField text="53-520" fx:id="zipTextField" GridPane.columnIndex="1" GridPane.rowIndex="11" />
-            <TextField text="Wrocław" fx:id="cityTextField" GridPane.columnIndex="4" GridPane.rowIndex="11" />
-            <TextField text="150" fx:id="houseTextField" GridPane.columnIndex="4" GridPane.rowIndex="10" />
+            <TextField fx:id="lastNameTextField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="firstNameTextField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="degreeTextField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="peselTextField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <TextField fx:id="telephoneTextField" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <TextField fx:id="emailTextField" GridPane.columnIndex="4" GridPane.rowIndex="9" />
+            <TextField fx:id="streetTextField" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+            <TextField fx:id="zipTextField" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+            <TextField fx:id="cityTextField" GridPane.columnIndex="4" GridPane.rowIndex="11" />
+            <TextField fx:id="houseTextField" GridPane.columnIndex="4" GridPane.rowIndex="10" />
             <Label text="%teacher.house" GridPane.columnIndex="3" GridPane.rowIndex="10" />
             <ImageView fx:id="photoImageView" fitHeight="119.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="4">
                <image>
@@ -68,7 +68,7 @@
                </image>
             </ImageView>
             <Label text="%teacher.photo" GridPane.columnIndex="3" GridPane.rowIndex="7" />
-            <TextField fx:id="photoTextField" text="%teacher.addPhoto" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+            <TextField fx:id="photoTextField" GridPane.columnIndex="4" GridPane.rowIndex="7" />
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="200.0" GridPane.columnSpan="6" GridPane.rowIndex="14">
                <children>
                   <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelButtonOnAction" prefHeight="50.0" prefWidth="100.0" text="%cancel" />
@@ -77,12 +77,12 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
                <children>
-                  <RadioButton fx:id="maleRadioButton" mnemonicParsing="false" text="%teacher.f">
+                  <RadioButton fx:id="femaleRadioButton" mnemonicParsing="false" text="%teacher.f">
                      <toggleGroup>
                         <ToggleGroup fx:id="sexToggleGroup" />
                      </toggleGroup>
                   </RadioButton>
-                  <RadioButton fx:id="femaleRadioButton" mnemonicParsing="false" text="%teacher.m" toggleGroup="$sexToggleGroup" />
+                  <RadioButton fx:id="maleRadioButton" mnemonicParsing="false" text="%teacher.m" toggleGroup="$sexToggleGroup" />
                </children>
             </HBox>
             <DatePicker fx:id="birthDatePicker" GridPane.columnIndex="1" GridPane.rowIndex="8" />
@@ -93,7 +93,6 @@
             </Label>
             <Label text="%teacher.division" GridPane.rowIndex="12" />
             <ComboBox fx:id="divisionComboBox" prefHeight="30.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="12" />
-            <TextField text="F" fx:id="sexTextField" GridPane.columnIndex="2" GridPane.rowIndex="7" />
          </children>
          <padding>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

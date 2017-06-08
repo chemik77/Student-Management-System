@@ -1,6 +1,5 @@
 package pl.chemik77.utils;
 
-import java.time.LocalDate;
 import java.util.Date;
 
 import pl.chemik77.database.dao.CourseDao;
@@ -17,7 +16,6 @@ import pl.chemik77.database.models.PersonalInfo;
 import pl.chemik77.database.models.Student;
 import pl.chemik77.database.models.StudentCourse;
 import pl.chemik77.database.models.Teacher;
-import pl.chemik77.utils.converters.OtherConverter;
 
 public class FillDatabase {
 	
