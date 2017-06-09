@@ -6,6 +6,7 @@ import javafx.scene.control.Toggle;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import pl.chemik77.modelsFx.fx.DivisionFx;
+import pl.chemik77.modelsFx.fx.TeacherFx;
 import pl.chemik77.modelsFx.model.DivisionModel;
 import pl.chemik77.modelsFx.model.TeacherModel;
 import javafx.scene.control.Button;
@@ -70,6 +71,7 @@ public class TeacherAddController {
 		this.divisionComboBox.setItems(this.divisionModel.getDivisionFxOL());
 		
 		//bind textFields with object in model
+		this.teacherModel.setTeacherFx(new TeacherFx());
 		this.teacherModel.teacherFxProperty().get().lastNameTeacherProperty().bind(this.lastNameTextField.textProperty());
 		this.teacherModel.teacherFxProperty().get().firstNameTeacherProperty().bind(this.firstNameTextField.textProperty());
 		this.teacherModel.teacherFxProperty().get().degreeProperty().bind(this.degreeTextField.textProperty());

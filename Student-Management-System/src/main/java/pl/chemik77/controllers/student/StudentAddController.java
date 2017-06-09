@@ -1,5 +1,7 @@
 package pl.chemik77.controllers.student;
 
+import java.io.IOException;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Toggle;
@@ -10,6 +12,7 @@ import pl.chemik77.modelsFx.fx.FacultyFx;
 import pl.chemik77.modelsFx.model.DivisionModel;
 import pl.chemik77.modelsFx.model.FacultyModel;
 import pl.chemik77.modelsFx.model.StudentModel;
+
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
@@ -66,12 +69,11 @@ public class StudentAddController {
 	private StudentModel studentModel;
 	
 	
-	
 	@FXML
 	private void initialize() {
 		this.divisionModel = new DivisionModel();
 		this.facultyModel = new FacultyModel();
-		this.studentModel = new StudentModel();
+		this.studentModel = StudentModel.getInstance();
 		this.divisionModel.init();
 		this.facultyModel.init();
 		this.studentModel.init();
@@ -80,9 +82,18 @@ public class StudentAddController {
 		//fill ComboBox with objects
 		this.divisionComboBox.setItems(this.divisionModel.getDivisionFxOL());
 		this.facultyComboBox.setItems(this.facultyModel.getFacultyFxOL());
+				
+		//bindings();
 		
-		bindings();
+		this.sexToggleGroup.selectedToggleProperty().addListener((observable, oldValue, newValue) -> {
+			setSex(newValue);
+		});
+		
 		validation();
+		
+		//bind ComboBox with object in model
+		this.studentModel.divisionFxProperty().bind(this.divisionComboBox.valueProperty());
+		this.studentModel.facultyFxProperty().bind(this.facultyComboBox.valueProperty());
 	}
 
 
@@ -109,9 +120,9 @@ public class StudentAddController {
 
 
 	public void bindings() {
-		
+	
 		//bind textFields with object in model
-		this.firstNameTextField.textProperty().bindBidirectional(this.studentModel.studentFxProperty().get().firstNameProperty());
+		this.firstNameTextField.textProperty().bindBidirectional(this.studentModel.getStudentFx().firstNameProperty());
 		this.lastNameTextField.textProperty().bindBidirectional(this.studentModel.studentFxProperty().get().lastNameProperty());
 		this.documentTextField.textProperty().bindBidirectional(this.studentModel.studentFxProperty().get().documentProperty());
 		
@@ -124,13 +135,7 @@ public class StudentAddController {
 		this.houseTextField.textProperty().bindBidirectional(this.studentModel.personalInfoFxProperty().get().houseProperty());
 		this.photoTextField.textProperty().bindBidirectional(this.studentModel.personalInfoFxProperty().get().photoProperty());
 		this.birthDatePicker.valueProperty().bindBidirectional(this.studentModel.personalInfoFxProperty().get().birthProperty());	
-		this.sexToggleGroup.selectedToggleProperty().addListener((observable, oldValue, newValue) -> {
-			setSex(newValue);
-		});
-		
-		//bind ComboBox with object in model
-		this.studentModel.divisionFxProperty().bind(this.divisionComboBox.valueProperty());
-		this.studentModel.facultyFxProperty().bind(this.facultyComboBox.valueProperty());
+
 	}
 
 	
@@ -138,12 +143,11 @@ public class StudentAddController {
 	public void addButtonOnAction() {
 		this.studentModel.addStudentToDatabase();
 		clearFields();
-		
 	}
 	
 
 	@FXML 
-	public void cancelButtonOnAction() {
+	public void cancelButtonOnAction() throws IOException {
 		Stage stage = (Stage) this.cancelButton.getScene().getWindow();
 		stage.close();
 	}
@@ -172,9 +176,8 @@ public class StudentAddController {
 		this.divisionComboBox.getSelectionModel().clearSelection();
 		this.facultyComboBox.getSelectionModel().clearSelection();
 		this.birthDatePicker.getEditor().clear();
-		this.sexToggleGroup.selectToggle(null);
+		
 	}
-
 
 	
 	public StudentModel getStudentModel() {

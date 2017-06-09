@@ -19,6 +19,9 @@ public class PersonalInfoModel {
 	private ObjectProperty<TeacherFx> teacherFx = new SimpleObjectProperty<>();
 	private ObjectProperty<PersonalInfoFx> personalInfoFx = new SimpleObjectProperty<>();
 	
+	public PersonalInfoModel() {
+	}
+	
 	public void init() {
 		
 		

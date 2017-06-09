@@ -1,0 +1,32 @@
+2017-06-08 14:54:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Tabela "STUDENTS" nie istnieje
+Table "STUDENTS" not found; SQL statement:
+SELECT * FROM `students`  [42102-195]
+2017-06-08 14:54:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Tabela "STUDENTS" nie istnieje
+Table "STUDENTS" not found; SQL statement:
+DROP TABLE `students`  [42102-195]
+2017-06-08 14:54:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Tabela "DIVISION" nie istnieje
+Table "DIVISION" not found; SQL statement:
+DROP TABLE `division`  [42102-195]
+2017-06-08 14:54:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Tabela "FACULTY" nie istnieje
+Table "FACULTY" not found; SQL statement:
+DROP TABLE `faculty`  [42102-195]
+2017-06-08 14:54:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Tabela "COURSE" nie istnieje
+Table "COURSE" not found; SQL statement:
+DROP TABLE `course`  [42102-195]
+2017-06-08 14:54:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Tabela "TEACHER" nie istnieje
+Table "TEACHER" not found; SQL statement:
+DROP TABLE `teacher`  [42102-195]
+2017-06-08 14:54:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Tabela "STUDENTCOURSE" nie istnieje
+Table "STUDENTCOURSE" not found; SQL statement:
+DROP TABLE `studentcourse`  [42102-195]
+2017-06-08 14:54:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Tabela "PERSONALINFO" nie istnieje
+Table "PERSONALINFO" not found; SQL statement:
+DROP TABLE `personalinfo`  [42102-195]

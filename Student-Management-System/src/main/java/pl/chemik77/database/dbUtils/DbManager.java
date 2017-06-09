@@ -19,7 +19,7 @@ import pl.chemik77.database.models.Teacher;
 
 public class DbManager {
 	
-	private static final String DATABASE_URL = "jdbc:h2:./StudentInformationSystemDB";
+	private static final String DATABASE_URL = "jdbc:h2:./StudentInformationSystemDB2";
 	private static ConnectionSource connectionSource;
 	private static final Logger LOGGER = LoggerFactory.getLogger(DbManager.class);
 	

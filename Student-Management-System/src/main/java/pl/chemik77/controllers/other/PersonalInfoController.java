@@ -3,6 +3,8 @@ package pl.chemik77.controllers.other;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import pl.chemik77.modelsFx.fx.PersonalInfoFx;
@@ -11,26 +13,39 @@ import pl.chemik77.modelsFx.fx.TeacherFx;
 
 public class PersonalInfoController {
 	
-	@FXML Label lastNameLabel;
-	@FXML Label firstNameLabel;
-	@FXML Label peselLabel;
-	@FXML Label sexLabel;
-	@FXML Label birthLabel;
-	@FXML Label phoneLabel;
-	@FXML Label emailLabel;
-	@FXML Label streetLabel;
-	@FXML Label zipLabel;
-	@FXML Label houseLabel;
-	@FXML Label cityLabel;
-	@FXML Button closeButton;
-	
+	@FXML 
+	private Label lastNameLabel;
+	@FXML 
+	private Label firstNameLabel;
+	@FXML 
+	private Label peselLabel;
+	@FXML 
+	private Label sexLabel;
+	@FXML 
+	private Label birthLabel;
+	@FXML 
+	private Label phoneLabel;
+	@FXML 
+	private Label emailLabel;
+	@FXML 
+	private Label streetLabel;
+	@FXML 
+	private Label zipLabel;
+	@FXML 
+	private Label houseLabel;
+	@FXML 
+	private Label cityLabel;
+	@FXML 
+	private Button closeButton;
+	@FXML
+	private ImageView photoImageView;
 	
 	
 	@FXML
 	public void initialize() {
-		
+		this.photoImageView.setImage(new Image(this.getClass().getResource("/img/Add-Male-User.png").toString()));
 	}
-
+	
 
 	@FXML public void closeButtonOnAction() {
 		Stage stage = (Stage) this.closeButton.getScene().getWindow();
@@ -51,7 +66,7 @@ public class PersonalInfoController {
 		this.zipLabel.setText(personalInfoFx.getZip());
 		this.houseLabel.setText(personalInfoFx.getHouse());
 		this.cityLabel.setText(personalInfoFx.getCity());
-		
+		this.photoImageView.setImage(new Image(this.getClass().getResource(personalInfoFx.getPhoto()).toString()));
 	}
 
 
@@ -69,7 +84,7 @@ public class PersonalInfoController {
 		this.zipLabel.setText(personalInfoFx.getZip());
 		this.houseLabel.setText(personalInfoFx.getHouse());
 		this.cityLabel.setText(personalInfoFx.getCity());
-		
+		this.photoImageView.setImage(new Image(this.getClass().getResource(personalInfoFx.getPhoto()).toString()));
 		
 	}
 }

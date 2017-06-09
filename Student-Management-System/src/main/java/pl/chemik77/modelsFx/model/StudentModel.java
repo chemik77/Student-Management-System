@@ -23,20 +23,28 @@ import pl.chemik77.utils.converters.StudentConverter;
 
 public class StudentModel {
 	
+	private static StudentModel instance = null;
+	
 	private ObservableList<StudentFx> studentFxOL = FXCollections.observableArrayList();
 	private FilteredList<StudentFx> filteredList;
 	
-	private ObjectProperty<StudentFx> studentFx = new SimpleObjectProperty<>();
-	private ObjectProperty<PersonalInfoFx> personalInfoFx = new SimpleObjectProperty<>();
+	private ObjectProperty<StudentFx> studentFx = new SimpleObjectProperty<>(new StudentFx());
+	private ObjectProperty<PersonalInfoFx> personalInfoFx = new SimpleObjectProperty<>(new PersonalInfoFx());
 	
 	private ObjectProperty<DivisionFx> divisionFx = new SimpleObjectProperty<>(new DivisionFx());
 	private ObjectProperty<FacultyFx> facultyFx = new SimpleObjectProperty<>(new FacultyFx());
 	
+	private StudentModel() {}
+	
+	//Singleton create one object of this class and pass its refrences to the other controllers
+	public static StudentModel getInstance() {
+		if(instance == null) {
+			instance = new StudentModel();
+		}
+		return instance;
+	}
 	
 	public void init() {
-		
-		this.studentFx.set(new StudentFx());
-		this.personalInfoFx.set(new PersonalInfoFx());
 		
 		//fill ObsList with students
 		StudentDao studentDao = new StudentDao();
@@ -49,6 +57,11 @@ public class StudentModel {
 		//fill FList with students
 		this.filteredList = new FilteredList<>(this.studentFxOL, p -> true);
 		
+	}
+	
+	public void setPersonalFromObject() {
+		if(this.getStudentFx() != null)
+			this.setPersonalInfoFx(this.getStudentFx().getPersonalInfoFx());
 	}
 	
 	public void filterByName(String newValue) {
